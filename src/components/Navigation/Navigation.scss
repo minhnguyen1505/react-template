@@ -1,0 +1,138 @@
+@import "../../assets/scss/global.scss";
+
+.sidebar {
+  background-color: $white;
+  min-height: 100vh;
+  &--left {
+    z-index: 999;
+    order: 1;
+    transition: all 0.3s ease;
+  }
+  &__content {
+    background-color: #161931;
+    width: 255px;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+  }
+}
+
+.aside-toolbar {
+  height: 65px;
+  position: relative;
+  background-color: #191d38;
+  .site-logo {
+    height: 65px;
+    height: calc-rem-value(65);
+    width: inherit;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    list-style: none;
+    li {
+      display: inline-block;
+      height: 65px;
+      .logo {
+        position: absolute;
+        top: 22px;
+        left: 15px;
+        svg {
+          width: 23px;
+          height: 23px;
+          path {
+            fill: #fff;
+          }
+        }
+      }
+      .brand-text {
+        color: #fff;
+        font-size: 18px;
+        font-size: calc-rem-value(18);
+        padding: 20px 0 0 47px;
+        font-weight: 400;
+        display: block;
+      }
+    }
+  }
+  .header-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3.125rem;
+    height: 4.0625rem;
+    line-height: 4;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .btn-menu {
+      padding: 6px 17px 6px 9px;
+      i {
+        color: #788db4;
+        font-size: 1.125rem;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+.main-menu {
+  width: inherit;
+  overflow-y: auto;
+  padding-bottom: 65px;
+  .nav.metismenu {
+    display: flex;
+    padding: 0.625rem 0 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    & > li {
+      display: block;
+      position: relative;
+      & > a {
+        display: block;
+        position: relative;
+      }
+    }
+  }
+  .sidebar-header {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0.625rem 1.25rem;
+    text-transform: uppercase;
+    font-size: 0.6875rem;
+    font-size: calc-rem-value(11);
+    color: rgba(120, 141, 180, 0.6);
+    span {
+      font-size: inherit;
+    }
+  }
+  .nav-dropdown {
+    a {
+      border-radius: 0;
+      font-size: 0.8125rem;
+      font-size: calc-rem-value(14);
+      font-weight: 300;
+      border-left: solid 3px transparent;
+      padding: 12px 15px 5px 20px;
+      margin: 0;
+      width: 100%;
+      position: relative;
+      color: #788db4;
+      i {
+        margin-right: 10px;
+        font-size: 18px;
+        display: inline-block;
+        vertical-align: top;
+        width: 24px;
+        height: 24px;
+      }
+      span {
+        font-size: inherit;
+      }
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}

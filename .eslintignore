@@ -1,0 +1,3 @@
+/src/assets/libraries/**/*.js
+/src/serviceWorker.ts
+!.eslintrc.js

@@ -1,0 +1,10 @@
+.content-public {
+  width: 100%;
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+  .content-wrapper {
+    order: 2;
+    width: 100%;
+  }
+}
