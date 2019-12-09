@@ -1,7 +1,7 @@
 import { takeLatest } from 'redux-saga/effects';
-import { registerSaga, loginSaga } from './authenticationSaga';
+import { registerSaga, loginSaga } from './authSaga';
 
-import * as types from '../actions';
+import * as types from '../actions/constants';
 
 
 export default function* watchUserAuthentication() {

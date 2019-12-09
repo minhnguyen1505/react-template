@@ -1,42 +1,56 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { Component, Dispatch } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { loginUserAction } from "../../store/actions/authActions";
+import { connect } from "react-redux";
 import "./LogIn.scss";
 
-interface LoginProps {}
+interface LoginProps {
+  loginHandle: any;
+  response: any;
+}
 interface LoginState {
-  accessToken: object;
+  accessToken: string;
+  username: string;
+  password: string;
 }
 
 class Login extends Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
     super(props);
-    // this.handleChangeTabs = this.handleChangeTabs.bind(this);
+    this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
-    this.state = { accessToken: {} };
+    this.state = { accessToken: "", username: "", password: "" };
   }
+
+  handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      [e.currentTarget.name]: e.currentTarget.value
+    } as { [Key in keyof LoginState]: LoginState[Key] });
+  };
 
   handleLogin(e: any) {
     e.preventDefault();
-    axios
-      .post(`http://kloutkast-api.dev.goldfishcode.com/v1/auth/login/`, {
-        username: "minh150555",
-        email: "",
-        password: "Minh@123456"
-      })
-      .then(res => {
-        this.setState({ accessToken: res.data });
-        console.log("accessToken", this.state.accessToken);
-        console.log("response", res.data);
-      })
-      .catch(error => {
-        console.log("error", error);
-      });
+    let username = this.state.username;
+    let password = this.state.password;
+    const data = {
+      username: username,
+      password: password
+    };
+    this.props.loginHandle(data);
   }
   render() {
+    let isSuccess, message;
+    if (this.props.response.login.hasOwnProperty("response")) {
+      isSuccess = this.props.response.login.response.status;
+      console.log("isSuccess", this.props.response.login.response);
+    }
+
     return (
       <form className="signin">
         <div className="card signin__card">
+          {isSuccess === 200
+            ? alert("Login success!")
+            : console.log("login failed")}
           <div className="signin__wrapper">
             <Link to="/" className="brand">
               <div className="logo">
@@ -53,15 +67,17 @@ class Login extends Component<LoginProps, LoginState> {
             </Link>
             <h5 className="heading">Sign in to your account</h5>
             <div className="form-group">
-              <label htmlFor="inputEmail" className="sr-only">
-                Email address
+              <label htmlFor="inputUser" className="sr-only">
+                Username
               </label>
               <input
-                type="email"
-                id="inputEmail"
+                type="text"
                 className="form-control"
-                placeholder="Email address"
+                placeholder="Username"
                 required
+                name="username"
+                value={this.state.username}
+                onChange={this.handleChangeInput}
               />
             </div>
 
@@ -71,10 +87,12 @@ class Login extends Component<LoginProps, LoginState> {
               </label>
               <input
                 type="password"
-                id="inputPassword"
                 className="form-control"
                 placeholder="Password"
                 required
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChangeInput}
               />
             </div>
             <div className="checkbox">
@@ -101,14 +119,23 @@ class Login extends Component<LoginProps, LoginState> {
             </button>
             <p className="text-muted">
               Don't have an account yet?
-              <a href="auth.register.html"> Create an account</a>
+              <Link to="signup"> Create an account</Link>
             </p>
           </div>
         </div>
-        <p>{JSON.stringify(this.state.accessToken)}</p>
       </form>
     );
   }
 }
 
-export default Login;
+const mapStateToProps = (response: any) => {
+  return { response };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    loginHandle: (data: any) => dispatch(loginUserAction(data))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
