@@ -1,15 +1,15 @@
 import React, { Component, Dispatch } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { loginUserAction } from "../../store/actions/authActions";
+import { loginUserAction } from "../../store/actions/actionAuth";
 import { connect } from "react-redux";
 import "./LogIn.scss";
 
 interface LoginProps {
-  loginHandle: any;
-  response: any;
+  loginHandle: Function;
+  loginStore: any;
 }
 interface LoginState {
-  accessToken: string;
+  accessToken: any;
   username: string;
   password: string;
 }
@@ -17,12 +17,11 @@ interface LoginState {
 class Login extends Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
     super(props);
-    this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.state = { accessToken: "", username: "", password: "" };
   }
 
-  handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  handleChangeInput = (e: any) => {
     this.setState({
       [e.currentTarget.name]: e.currentTarget.value
     } as { [Key in keyof LoginState]: LoginState[Key] });
@@ -30,27 +29,32 @@ class Login extends Component<LoginProps, LoginState> {
 
   handleLogin(e: any) {
     e.preventDefault();
-    let username = this.state.username;
-    let password = this.state.password;
+    const { username, password } = this.state;
+    const { loginHandle } = this.props;
     const data = {
-      username: username,
-      password: password
+      username,
+      password
     };
-    this.props.loginHandle(data);
+    loginHandle(data);
   }
-  render() {
-    let isSuccess, message;
-    if (this.props.response.login.hasOwnProperty("response")) {
-      isSuccess = this.props.response.login.response.status;
-      console.log("isSuccess", this.props.response.login.response);
-    }
 
+  render() {
+    const { loginStore } = this.props;
+    let isSuccess;
+    if (
+      loginStore.hasOwnProperty("response") &&
+      loginStore.response !== undefined
+    ) {
+      isSuccess = loginStore.response;
+      if (isSuccess) {
+        window.location.pathname = "home";
+      }
+    } else {
+      isSuccess = 400;
+    }
     return (
       <form className="signin">
         <div className="card signin__card">
-          {isSuccess === 200
-            ? alert("Login success!")
-            : console.log("login failed")}
           <div className="signin__wrapper">
             <Link to="/" className="brand">
               <div className="logo">
@@ -112,7 +116,7 @@ class Login extends Component<LoginProps, LoginState> {
               </a>
             </div>
             <button
-              className="btn btn--primary btn--full"
+              className="btn btn--primary btn--full btn-login"
               onClick={this.handleLogin}
             >
               Sign In
@@ -128,9 +132,9 @@ class Login extends Component<LoginProps, LoginState> {
   }
 }
 
-const mapStateToProps = (response: any) => {
-  return { response };
-};
+const mapStateToProps = (store: any) => ({
+  loginStore: store.login
+});
 
 const mapDispatchToProps = (dispatch: any) => {
   return {

@@ -1,0 +1,88 @@
+@import "../../assets/scss/global.scss";
+
+.calendar {
+  width: 100%;
+  height: auto;
+  min-height: 265px;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  margin: 10px 0;
+  border-collapse: separate;
+  background-color: #ffffff;
+  &__navigation {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    .label {
+      font-weight: bold;
+      font-size: 18px;
+      font-size: calc-rem-value(18);
+      color: $semi-black;
+    }
+    .button {
+      cursor: pointer;
+    }
+  }
+  &__date {
+    table {
+      width: 100%;
+    }
+    .calendar-day {
+      thead {
+        tr {
+          th {
+            font-size: 13px;
+            font-size: calc-rem-value(13);
+            font-weight: normal;
+            text-align: center;
+            padding-bottom: 5px;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            font-size: 14px;
+            font-size: calc-rem-value(14);
+            position: relative;
+            text-align: center;
+            color: $semi-black;
+            padding: 5px 0;
+            cursor: pointer;
+            span {
+              position: relative;
+              z-index: 1;
+            }
+            &:after {
+              top: 50%;
+              left: 50%;
+              width: 25px;
+              height: 25px;
+              content: "";
+              display: block;
+              position: absolute;
+              border-radius: 50%;
+              -webkit-border-radius: 50%;
+              transform: translate(-50%, -50%);
+            }
+            &.today {
+              color: #fff;
+              &:after {
+                background-color: $primary-red;
+              }
+            }
+            &:hover {
+              &:not(.today) {
+                &:after {
+                  background-color: rgba($primary-red, 0.1);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

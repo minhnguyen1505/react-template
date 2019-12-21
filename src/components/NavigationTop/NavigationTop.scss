@@ -1,0 +1,111 @@
+@import "../../assets/scss/global.scss";
+.top-toolbar {
+  box-shadow: 0 1px 1px 1px rgba(18, 106, 211, 0.08);
+  display: flex;
+  flex-direction: row;
+  height: 65px;
+  max-height: 65px;
+  margin: 0;
+  padding: 0;
+  &.navbar-desktop {
+    z-index: 50;
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    .navbar-nav {
+      display: flex;
+      flex-direction: row;
+      padding-left: 0;
+      margin-bottom: 0;
+      height: 65px;
+      &.nav-left {
+        order: 0;
+        flex: 1;
+        border-right: 1px solid #ddd;
+        .form-search {
+          border: 0;
+          background: #fff;
+          transition: all 0.3s ease;
+          width: 100%;
+          position: relative;
+          .form-group {
+            height: 100%;
+            width: 100%;
+            margin-top: 0;
+            padding-bottom: 0;
+            input {
+              height: 100%;
+              border: 0;
+              border-radius: 0;
+              width: 100%;
+              background-image: none !important;
+              padding-left: 0;
+            }
+            i {
+              height: 30px;
+              cursor: pointer;
+              top: 50%;
+              margin-top: -15px;
+              line-height: 30px;
+              margin-right: 10px;
+              font-size: 1.375em;
+              position: absolute;
+              right: 30px;
+            }
+          }
+        }
+      }
+      &.nav-right {
+        margin: 0 0 0 auto;
+        padding: 0;
+        order: 2;
+        position: relative;
+        padding-left: 30px;
+      }
+      .nav-item {
+        list-style: none;
+        min-width: 65px;
+        height: 65px;
+        span {
+          text-align: center;
+          line-height: 65px;
+          width: 65px;
+          display: inline-block;
+          height: 65px;
+          position: relative;
+          color: $icon;
+          cursor: pointer;
+          i {
+            font-size: 1.5rem;
+            position: relative;
+            max-height: 65px;
+          }
+          &.user-avatar {
+            line-height: 60px;
+            img {
+              height: 45px;
+              width: 45px;
+              object-fit: cover;
+            }
+          }
+          &:hover {
+            color: $primary-hover;
+            i {
+              &:after {
+                content: "";
+                position: absolute;
+                height: 45px;
+                width: 45px;
+                border-radius: 50%;
+                background-color: rgba(240, 246, 255, 0.7);
+                left: -10px;
+                top: -10px;
+                z-index: -1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

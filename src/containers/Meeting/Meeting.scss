@@ -1,0 +1,72 @@
+@import "../../assets/scss/global.scss";
+.page-content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  padding: 30px;
+  .card {
+    box-shadow: 0 10px 40px 0 rgba(18, 106, 211, 0.07),
+      0 2px 9px 0 rgba(18, 106, 211, 0.06);
+    border: none;
+    margin-bottom: 1.875rem;
+    transition: all 0.3s ease;
+    .card-body {
+      flex: 1 1 auto;
+      padding: 1.25rem;
+      .has-border {
+        border-right: 1px solid rgba($primary-font, 0.2);
+      }
+      .btn {
+        &--create-task {
+          border-radius: 10px;
+          background-color: $primary-red;
+          color: $white;
+          padding: 0;
+          margin: 15px 0 20px;
+          height: 45px;
+          line-height: 45px;
+        }
+      }
+      .notetip {
+        margin-top: 10px;
+        &__heading {
+          font-size: 18px;
+          font-size: calc-rem-value(18);
+          margin-bottom: 15px;
+        }
+        &__list {
+          list-style: none;
+          padding-left: 0;
+        }
+        &__item {
+          color: $semi-black;
+          padding-bottom: 10px;
+          &:before {
+            content: "";
+            font-weight: bold;
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 12px;
+          }
+          &.meeting {
+            &::before {
+              background-color: #2750d3;
+            }
+          }
+          &.event {
+            &::before {
+              background-color: #eb325d;
+            }
+          }
+          &.casting {
+            &::before {
+              background-color: #41b79b;
+            }
+          }
+        }
+      }
+    }
+  }
+}

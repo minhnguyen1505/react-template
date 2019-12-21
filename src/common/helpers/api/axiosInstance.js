@@ -3,8 +3,6 @@ import { registerIntercepters } from "./intercepters";
 
 const API_URL = process.env.REACT_APP_BASE_API;
 
-let progress = 0;
-
 const axiosInstance = axios.create({
   baseURL: API_URL,
   headers: {
@@ -18,9 +16,9 @@ const axiosInstance = axios.create({
       "Content-Type": "application/json"
     }
   },
-  onUploadProgress: function(progressEvent) {
+  onUploadProgress: function (progressEvent) {
+    let progress = 0;
     progress = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-    console.log(progress);
   }
 });
 

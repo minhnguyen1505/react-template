@@ -4,22 +4,16 @@ import Navigation from "../../components/Navigation/Navigation";
 import "./PublicTemplate.scss";
 
 interface PublicProps {
-  component: Component;
+  children: any;
 }
 
 export default class PublicTemplate extends Component<PublicProps> {
-  // constructor(props: PublicProps) {
-  //   super(props);
-  // }
   render() {
     const Component = this.props.children;
     return (
       <div className="content-public">
         <Navigation isPublic={true} />
-        <div className="content-wrapper">
-          {/* <NavigationTop /> */}
-          {Component}
-        </div>
+        <div className="content-wrapper">{Component}</div>
       </div>
     );
   }

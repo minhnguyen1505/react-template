@@ -1,14 +1,12 @@
-import * as types from '../actions/constants';
+import types from "../actions/types";
 
-export default function(state = [], action) {
-  const response = action.response;
-
-  switch(action.type) {
+export default function (state = {}, action) {
+  switch (action.type) {
     case types.LOGIN_USER_SUCCESS:
-      return { ...state, response };
+      return { ...state, response: action.payload };
     case types.LOGIN_USER_ERROR:
-      return { ...state, response };
+      return { ...state, response: action.payload };
     default:
       return state;
   }
-};
+}

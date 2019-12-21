@@ -50,7 +50,7 @@ class Navigation extends Component<NavigationProps> {
           </div>
 
           <nav className="main-menu">
-            {isPublic ? (
+            {!!isPublic ? (
               <ul className="nav metismenu">
                 <li className="sidebar-header">
                   <span>Public Items</span>
@@ -75,31 +75,40 @@ class Navigation extends Component<NavigationProps> {
                 </li>
                 <li className="nav-dropdown">
                   <Link to="home" className="has-arrow">
-                    <i className="icon dripicons-jewel"></i>
+                    <i className="icon dripicons-home"></i>
                     <span>Homepage</span>
                   </Link>
                 </li>
                 <li className="nav-dropdown">
                   <Link to="profile" className="has-arrow">
-                    <i className="icon dripicons-jewel"></i>
+                    <i className="icon dripicons-photo-group"></i>
                     <span>Your Profile</span>
                   </Link>
                 </li>
                 <li className="nav-dropdown">
                   <Link to="explore" className="has-arrow">
-                    <i className="icon dripicons-jewel"></i>
+                    <i className="icon dripicons-search"></i>
                     <span>Discover new things</span>
                   </Link>
                 </li>
                 <li className="nav-dropdown">
                   <Link to="settings" className="has-arrow">
-                    <i className="icon dripicons-jewel"></i>
+                    <i className="icon dripicons-toggles"></i>
                     <span>Settings</span>
+                  </Link>
+                </li>
+                <li className="sidebar-header">
+                  <span>Extra Items</span>
+                </li>
+                <li className="nav-dropdown">
+                  <Link to="meeting" className="has-arrow">
+                    <i className="icon dripicons-calendar"></i>
+                    <span>Arrange meetings</span>
                   </Link>
                 </li>
                 <li className="nav-dropdown">
                   <Link to="/" className="has-arrow">
-                    <i className="icon dripicons-jewel"></i>
+                    <i className="icon dripicons-reply-all"></i>
                     <span>Signout</span>
                   </Link>
                 </li>
