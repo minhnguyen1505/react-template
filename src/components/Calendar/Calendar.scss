@@ -9,75 +9,127 @@
   padding: 0;
   margin: 10px 0;
   border-collapse: separate;
-  background-color: #ffffff;
-  &__navigation {
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    .label {
-      font-weight: bold;
-      font-size: 18px;
-      font-size: calc-rem-value(18);
-      color: $semi-black;
-    }
-    .button {
-      cursor: pointer;
-    }
-  }
-  &__date {
-    table {
+  background-color: $white;
+  &__header {
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    font-size: 1.4rem;
+    display: block;
+    font-weight: bold;
+    .month-display {
+      display: flex;
       width: 100%;
-    }
-    .calendar-day {
-      thead {
-        tr {
-          th {
-            font-size: 13px;
-            font-size: calc-rem-value(13);
-            font-weight: normal;
-            text-align: center;
-            padding-bottom: 5px;
-          }
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      margin-bottom: 15px;
+      .label {
+        font-weight: bold;
+        font-size: 18px;
+        font-size: calc-rem-value(18);
+        color: $semi-black;
+      }
+      .buttons {
+        display: flex;
+        .button {
+          text-align: center;
+          flex-basis: 15%;
+          font-size: 20px;
+          font-weight: bold;
+          cursor: pointer;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
-      tbody {
-        tr {
-          td {
-            font-size: 14px;
-            font-size: calc-rem-value(14);
+    }
+    .day-names {
+      font-size: 14px;
+      font-size: calc-rem-value(14);
+      font-weight: normal;
+      text-align: center;
+      display: flex;
+      width: 100%;
+    }
+  }
+  .week {
+    display: flex;
+    width: 100%;
+    .day {
+      font-size: 14px;
+      font-size: calc-rem-value(14);
+      color: $semi-black;
+    }
+  }
+  .day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    &.different-month {
+      color: rgba($semi-black, 0.4)
+    }
+    &.today {
+      color: $primary-red;
+    }
+    &.selected {
+      color: $white;
+      z-index: 0;
+      &::after {
+        content: "";
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: $primary-red;
+        border-radius: 50%;
+        z-index: -1;
+      }
+    }
+  }
+
+  .calendar-day {
+    tbody {
+      tr {
+        td {
+          font-size: 14px;
+          font-size: calc-rem-value(14);
+          position: relative;
+          text-align: center;
+
+          padding: 5px 0;
+          cursor: pointer;
+          span {
             position: relative;
-            text-align: center;
-            color: $semi-black;
-            padding: 5px 0;
-            cursor: pointer;
-            span {
-              position: relative;
-              z-index: 1;
-            }
+            z-index: 1;
+          }
+          &:after {
+            top: 50%;
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            content: "";
+            display: block;
+            position: absolute;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            transform: translate(-50%, -50%);
+          }
+          &.today {
+            color: #fff;
             &:after {
-              top: 50%;
-              left: 50%;
-              width: 25px;
-              height: 25px;
-              content: "";
-              display: block;
-              position: absolute;
-              border-radius: 50%;
-              -webkit-border-radius: 50%;
-              transform: translate(-50%, -50%);
+              background-color: $primary-red;
             }
-            &.today {
-              color: #fff;
+          }
+          &:hover {
+            &:not(.today) {
               &:after {
-                background-color: $primary-red;
-              }
-            }
-            &:hover {
-              &:not(.today) {
-                &:after {
-                  background-color: rgba($primary-red, 0.1);
-                }
+                background-color: rgba($primary-red, 0.1);
               }
             }
           }

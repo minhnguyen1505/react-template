@@ -5,5 +5,5 @@ import types from "../actions/types";
 
 export default function* watchUserAuthentication() {
   // yield takeLatest(types.REGISTER_USER, registerSaga);
-  yield takeLatest(types.LOGIN_USER, loginSaga);
+  yield takeLatest(types.LOGIN_REQUEST, loginSaga);
 }

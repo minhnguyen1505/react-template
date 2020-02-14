@@ -19,6 +19,7 @@ const axiosInstance = axios.create({
   onUploadProgress: function (progressEvent) {
     let progress = 0;
     progress = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+    console.log(progress)
   }
 });
 

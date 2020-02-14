@@ -5,10 +5,14 @@ import types from "../actions/types";
 
 export function* loginSaga(payload) {
   try {
-    const response = yield call(apiServices.login, payload.user);
-    yield put({ type: types.LOGIN_USER_SUCCESS, payload: response });
-    yield call(setCookie("token", response.key, 1));
+    const response = yield call(apiServices.login, payload.data);
+    if (response.code === 200) {
+      yield put({ type: types.LOGIN_REQUEST_SUCCESS, success: response});
+      yield call(setCookie("token", response.data.key, 8));
+    } else {
+      throw response
+    }
   } catch (error) {
-    yield put({ type: types.LOGIN_USER_ERROR, payload: error });
+    yield put({ type: types.LOGIN_REQUEST_ERROR, error });
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { setCookie } from "../../common/helpers/cookies";
 import "./Navigation.scss";
 
 interface NavigationProps {
@@ -7,6 +8,12 @@ interface NavigationProps {
 }
 
 class Navigation extends Component<NavigationProps> {
+  signOut(e: any) {
+    e.preventDefault();
+    setCookie("token", null, 0);
+    window.location.pathname = "login";
+  }
+
   render() {
     const { isPublic } = this.props;
     return (
@@ -107,10 +114,14 @@ class Navigation extends Component<NavigationProps> {
                   </Link>
                 </li>
                 <li className="nav-dropdown">
-                  <Link to="/" className="has-arrow">
+                  <a
+                    href=""
+                    className="has-arrow"
+                    onClick={(e) => this.signOut(e)}
+                  >
                     <i className="icon dripicons-reply-all"></i>
                     <span>Signout</span>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             )}

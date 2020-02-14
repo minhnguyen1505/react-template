@@ -25,6 +25,19 @@
       display: block;
       text-align: center;
       margin-bottom: 20px;
+      .logo {
+        height: 60px;
+        img {
+          -webkit-transition: 3s;
+          transition: 3s;
+        }
+        &:hover {
+          img {
+            -webkit-transform: rotate(3turn);
+            transform: rotate(3turn);
+          }
+        }
+      }
     }
     .heading {
       font-size: 16px;

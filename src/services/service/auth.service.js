@@ -5,10 +5,16 @@ export const login = (authInfo) => {
         console.log('run actions')
         authApi.login(authInfo)
             .then((resp) => {
-                resolve(resp);
+                resolve({
+                    code: 200,
+                    data: resp
+                });
             })
             .catch((err) => {
-                resolve(err);
+                resolve({
+                    code: err.code,
+                    err: err
+                });
             });
     });
 }

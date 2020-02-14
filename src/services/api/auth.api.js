@@ -1,6 +1,5 @@
 import api from '../../common/helpers/api';
 import { API_URL } from '../../common/config';
-import { tokenDTO } from '../../common/data/tokenDTO';
 
 export const login = (authInfo) => {
     return new Promise(async (resolve, reject) => {
@@ -14,7 +13,6 @@ export const login = (authInfo) => {
             });
             if (resp) {
                 console.log('run here', resp)
-                // const authData = tokenDTO(resp);
                 resolve(resp);
                 
             }

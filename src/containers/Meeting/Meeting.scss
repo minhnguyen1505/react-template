@@ -12,7 +12,7 @@
     transition: all 0.3s ease;
     .card-body {
       flex: 1 1 auto;
-      padding: 1.25rem;
+      padding: 0 1.25rem;
       .has-border {
         border-right: 1px solid rgba($primary-font, 0.2);
       }
@@ -22,9 +22,10 @@
           background-color: $primary-red;
           color: $white;
           padding: 0;
-          margin: 15px 0 20px;
+          margin: 20px 0 20px;
           height: 45px;
           line-height: 45px;
+          max-width: 180px;
         }
       }
       .notetip {

@@ -41,22 +41,6 @@ p {
   line-height: 1.7;
 }
 
-.form-control {
-  color: #323a48;
-  border: 1px solid rgba(120, 141, 180, 0.3);
-  border-color: #dfe7f3;
-  font-size: 14px;
-  font-size: calc-rem-value(14);
-  &:focus {
-    border: 1px solid $primary-link;
-    box-shadow: none;
-    outline: none;
-  }
-  &::placeholder {
-    color: #b5b5b5;
-  }
-}
-
 .btn {
   padding: 25px 50px;
   font-size: 16px;
@@ -64,6 +48,9 @@ p {
   line-height: 0.2;
   height: auto;
   border-radius: 50px;
+  &:focus {
+    box-shadow: none;
+  }
   &--primary {
     background-color: $primary-link;
     border: 1px solid $primary-link;
