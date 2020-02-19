@@ -1,0 +1,36 @@
+[debug] [2020-02-19T13:18:18.226Z] ----------------------------------------------------------------------
+[debug] [2020-02-19T13:18:18.228Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js projects:list
+[debug] [2020-02-19T13:18:18.228Z] CLI Version:   7.13.1
+[debug] [2020-02-19T13:18:18.228Z] Platform:      win32
+[debug] [2020-02-19T13:18:18.228Z] Node Version:  v10.16.3
+[debug] [2020-02-19T13:18:18.229Z] Time:          Wed Feb 19 2020 20:18:18 GMT+0700 (Indochina Time)
+[debug] [2020-02-19T13:18:18.229Z] ----------------------------------------------------------------------
+[debug] [2020-02-19T13:18:18.229Z] 
+[debug] [2020-02-19T13:18:18.273Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-19T13:18:18.273Z] > authorizing via signed-in user
+[debug] [2020-02-19T13:18:18.279Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-19T13:18:18.279Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-02-19T13:18:18.766Z] <<< HTTP RESPONSE 400
+[debug] [2020-02-19T13:18:18.767Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=1000  
+ 
+[debug] [2020-02-19T13:18:19.436Z] <<< HTTP RESPONSE 401
+[debug] [2020-02-19T13:18:19.436Z] <<< HTTP RESPONSE BODY
+[debug] [2020-02-19T13:18:19.527Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2020-02-19T13:18:21.346Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\Admin\AppData\Roaming\nvm\v10.16.3\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\Admin\AppData\Roaming\nvm\v10.16.3\node_modules\firebase-tools\lib\api.js:39:35)
+    at Request.self.callback (C:\Users\Admin\AppData\Roaming\nvm\v10.16.3\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at Request.<anonymous> (C:\Users\Admin\AppData\Roaming\nvm\v10.16.3\node_modules\firebase-tools\node_modules\request\request.js:1154:10)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at IncomingMessage.<anonymous> (C:\Users\Admin\AppData\Roaming\nvm\v10.16.3\node_modules\firebase-tools\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (events.js:286:20)
+    at IncomingMessage.emit (events.js:203:15)
+    at IncomingMessage.EventEmitter.emit (domain.js:448:20)
+    at endReadableNT (_stream_readable.js:1145:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
