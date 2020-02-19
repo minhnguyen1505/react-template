@@ -1,6 +1,9 @@
 language: node_js
 node_js:
-  - "10.16.3"
+  - "10"
+cache:
+  directories:
+    - 'node_modules'
 branches:
   only:
   - master
@@ -9,6 +12,7 @@ script:
   - npm install
   - npm run lint
   # - npm run test
+  - unset CI
   - npm run build
 install:
   - npm install -g firebase-tools

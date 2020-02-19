@@ -115,7 +115,7 @@ class Navigation extends Component<NavigationProps> {
                 </li>
                 <li className="nav-dropdown">
                   <a
-                    href=""
+                    href="javascript:void(0)"
                     className="has-arrow"
                     onClick={(e) => this.signOut(e)}
                   >
