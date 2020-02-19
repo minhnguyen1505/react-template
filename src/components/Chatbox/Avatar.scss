@@ -1,0 +1,31 @@
+.avatar {
+    position: relative;
+    height: 28px;
+    width: 28px;
+    &__link {
+      float: left;
+    }
+    &__image {
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      img {
+        display: block;
+        object-fit: cover;
+      }
+    }
+    &__status {
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      border: 2px solid white;
+      border-radius: 50%;
+      height: 7px;
+      width: 7px;
+      transition: border-color 0.4s;
+      box-sizing: content-box;
+      &.online {
+        background-color: #42b72a;
+      }
+    }
+  }

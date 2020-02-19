@@ -110,7 +110,6 @@ class Login extends Component<LoginProps, LoginState> {
           values,
           handleSubmit,
           errors,
-          isSubmitting,
           touched,
           handleBlur
         }) => (

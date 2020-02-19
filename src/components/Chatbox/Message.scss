@@ -7,6 +7,9 @@
   font-size: 13px;
   line-height: 16px;
   padding: 0;
+  &.me {
+    flex-direction: row-reverse;
+  }
   &__outer {
     flex-direction: column;
   }
@@ -19,6 +22,10 @@
     position: relative;
     clear: left;
     float: left;
+    &.me {
+      clear: none;
+      float: none;
+    }
   }
   &__wrapper {
     display: flex;
@@ -44,17 +51,19 @@
     margin: 0;
     max-width: 156px; // considering
     overflow-wrap: inherit; // considering
+    border-radius: 20px 48px 48px 20px;
+    // first
+    border-top-left-radius: 48px;
+    &.me {
+      color: white;
+      background-color: #0099ff;
+      border-radius: 48px 20px 20px 48px;
+    }
   }
   &__rounded {
     position: relative;
     padding: 6px 10px;
-    border-radius: 36px;
     z-index: 0;
-    // dltr
-    border-bottom-right-radius: 48px;
-    border-top-right-radius: 48px;
-    // first
-    border-top-left-radius: 48px;
   }
   &__single {
     font-size: 13px;
@@ -76,6 +85,9 @@
   display: flex;
   flex: 1 1 0%;
   float: none;
+  &.me {
+    justify-content: flex-end;
+  }
   &__outer {
     display: flex;
     position: absolute;

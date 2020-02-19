@@ -2,20 +2,21 @@ import React, { Component } from "react";
 import "./Message.scss";
 
 interface MessageProps {
-  content: String;
+  content: string;
+  user: string;
 }
 
 export default class Message extends Component<MessageProps> {
   render() {
-    const { content } = this.props;
+    const { content, user } = this.props;
     return (
-      <div className="message">
+      <div className={"message " + user}>
         <div className="message__outer">
           <div className="message__inner direction_ltr clearfix">
-            <div className="message__float">
+            <div className={"message__float " + user}>
               <div className="message__wrapper">
                 <div className="dont_know"></div>
-                <div className="message__content">
+                <div className={"message__content " + user}>
                   <div className="_4gx_">
                     <div className="message__rounded">
                       <div>
@@ -27,7 +28,7 @@ export default class Message extends Component<MessageProps> {
                   </div>
                 </div>
               </div>
-              <span className="action">
+              <span className={"action " + user}>
                 <span className="action__outer">
                   <span className="action__inner">
                     <button id="react_to_message_button">

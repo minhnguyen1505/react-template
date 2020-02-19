@@ -1,0 +1,22 @@
+.cluster {
+  align-items: flex-end;
+  display: flex;
+  margin: 10px 9px 10px 8px;
+  position: relative;
+  border-left: 8px solid white;
+  border-bottom: 4px solid white;
+  border-top: 4px solid white;
+  border-right: 18px solid white;
+  background: white;
+  margin: 0;
+  &__avatar {
+    position: relative;
+    background: white;
+    border-right: 6px solid white;
+  }
+  &__outer {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+}

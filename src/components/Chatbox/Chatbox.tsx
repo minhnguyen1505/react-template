@@ -1,9 +1,22 @@
 import React, { Component } from "react";
-import Message from "./Message";
+import Avatar from "./Avatar";
+import MessageCluster from "./MessageCluster";
 import "./Chatbox.scss";
 
 export default class Chatbox extends Component {
   render() {
+    const user0 = {
+      id: 0,
+      name: "Minh Nguyen"
+    };
+    const user1 = {
+      id: 1,
+      name: "Chung Nguyen",
+      image:
+        "https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-1/cp0/p60x60/26220410_2036967636543302_189946391717444754_o.jpg?_nc_cat=103&_nc_ohc=AK2U1V62UnEAX9_mNBV&_nc_ht=scontent.fhph1-2.fna&oh=d2440b7b5beebc52b25bd13f21f7fb2f&oe=5ECA2944",
+      link: "https://www.facebook.com/profile.php?id=100006902562238",
+      status: "online"
+    };
     return (
       <div className="chatbox">
         <div className="chatbox__outer">
@@ -11,31 +24,19 @@ export default class Chatbox extends Component {
             <div className="chat-titlebar">
               <div className="chat-titlebar__outer">
                 <div className="chat-titlebar__inner">
-                  <div className="avatar">
-                    <a
-                      className="avatar__link"
-                      href="https://www.facebook.com/profile.php?id=100006902562238"
-                    >
-                      <div className="avatar__image">
-                        <img
-                          src="https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-1/cp0/p60x60/26220410_2036967636543302_189946391717444754_o.jpg?_nc_cat=103&amp;_nc_ohc=AK2U1V62UnEAX9_mNBV&amp;_nc_ht=scontent.fhph1-2.fna&amp;oh=d2440b7b5beebc52b25bd13f21f7fb2f&amp;oe=5ECA2944"
-                          width="28"
-                          height="28"
-                          alt=""
-                          className="img"
-                        />
-                      </div>
-                    </a>
-                    <div className="avatar__status online"></div>
-                  </div>
+                  <Avatar
+                    image={user1.image}
+                    link={user1.link}
+                    status={user1.status}
+                  />
                   <div className="chat-titlebar__wrapper">
                     <div className="user-info">
                       <div className="username">
-                        <a href="https://www.facebook.com/profile.php?id=100006902562238">
-                          <span>Chung Nguyen</span>
+                        <a href={user1.link}>
+                          <span>{user1.name}</span>
                         </a>
                       </div>
-                      <div className="status">Đang hoạt động</div>
+                      <div className="status">{user1.status}</div>
                     </div>
                     <div className="tools">
                       <div className="tool">
@@ -84,13 +85,46 @@ export default class Chatbox extends Component {
                         <div className="accessible_elem _2kwv">
                           Bắt đầu cuộc trò chuyện
                         </div>
-                        <div className="_1xdl">
-                          <span
-                            className="loading img _55ym _55yn _55yo"
-                            role="progressbar"
-                            aria-valuetext="Đang tải..."
-                            aria-busy="true"
-                          ></span>
+                        <div className="_llj _2eu_ clearfix">
+                          <div className="_ohe lfloat">
+                            <div className="_llk img _8o _8t">
+                              <div className="_55lt">
+                                <img
+                                  src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-1/cp0/c64.10.122.121a/s60x60/483978_423642011021831_1071443648_n.jpg?_nc_cat=105&amp;_nc_ohc=i5SIG12_UKUAX9MI4a9&amp;_nc_ht=scontent.fhph1-2.fna&amp;oh=5672e6b12830d3a3ebd7620c1854aa61&amp;oe=5EB58C2D"
+                                  width="50"
+                                  height="50"
+                                  alt=""
+                                  className="img"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="">
+                            <div className="_42ef">
+                              <div className="_lll">
+                                <div className="_1n-e _36zg">
+                                  <span></span>
+                                </div>
+                                <div>
+                                  <div className="_1n-e">
+                                    <span>
+                                      Làm việc tại Học viện Hàng Không Việt Nam
+                                      (Ăn Hàng - Ở Không).
+                                    </span>
+                                  </div>
+                                  <div className="_1n-e">
+                                    <span>
+                                      Học Biotechnology - Công nghệ sinh học tại
+                                      Ho Chi Minh City University of Technology
+                                    </span>
+                                  </div>
+                                  <div className="_1n-e">
+                                    <span>Sống tại Gò Vấp</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -100,303 +134,8 @@ export default class Chatbox extends Component {
                         {/* <time className="_5w-5">
                           <span className="_5w-6">T5 20:17</span>
                         </time> */}
-
-                        <div className="_4tdt _ua1">
-                          <div className="_31o4">
-                            <div aria-hidden="true" className="_6--1">
-                              <a
-                                aria-label="Chung Nguyen - Thứ Năm 20:17chiều"
-                                data-hover="tooltip"
-                                data-tooltip-content="Chung Nguyen - Thứ Năm 20:17chiều"
-                                data-tooltip-position="right"
-                                className="_2yg8"
-                                data-hovercard="/ajax/hovercard/chat.php?id=100006902562238&amp;type=chat"
-                                href="https://www.facebook.com/profile.php?id=100006902562238"
-                              >
-                                <div className="_1gyw _55lt">
-                                  <img
-                                    width="28"
-                                    height="28"
-                                    alt=""
-                                    className="img"
-                                    src="https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-1/cp0/p60x60/26220410_2036967636543302_189946391717444754_o.jpg?_nc_cat=103&amp;_nc_ohc=AK2U1V62UnEAX9_mNBV&amp;_nc_ht=scontent.fhph1-2.fna&amp;oh=d2440b7b5beebc52b25bd13f21f7fb2f&amp;oe=5ECA2944"
-                                  />
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-
-                          <div className="_ua2">
-                            <div className="_4tdv">
-                              {" "}
-                              {/* message */}
-                              <Message content="that's right"/>
-                              {/* end message */}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="_4tdt _ua0">
-                          <div className="_ua2">
-                            <div className="_4tdv">
-                              <div className="_5wd4 _1nc6">
-                                <div className="._1dlq _h8t">
-                                  <div
-                                    className="_5wd9 direction_ltr clearfix"
-                                    data-tooltip-content="Thứ Năm 20:17chiều"
-                                    data-hover="tooltip"
-                                    data-tooltip-position="right"
-                                  >
-                                    <div className="_1e-x _n4o">
-                                      <div className="_3_bl">
-                                        <div className="_3_bp"></div>
-                                        <div className="_5w1r _3_om _5wdf">
-                                          <div className="_4gx_">
-                                            <div className="_1aa6">
-                                              <div className="">
-                                                <span className="_5yl5">
-                                                  <span>
-                                                    trình lên thoy chứ tiền chưa
-                                                    lên
-                                                  </span>
-                                                </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <span className="_40fu" data-hover="none">
-                                        <span className="_1z_2 _2u_d">
-                                          <span className="_8sow">
-                                            <button
-                                              data-tooltip-content="Bày tỏ cảm xúc"
-                                              data-hover="tooltip"
-                                              data-tooltip-position="above"
-                                              data-tooltip-alignh="center"
-                                              className="_8sop _5zvq"
-                                              aria-label="Bày tỏ cảm xúc"
-                                              data-testid="react_to_message_button"
-                                            >
-                                              <i className="img sp_OzXfMioWn3- sx_8e5ac5"></i>
-                                            </button>
-                                          </span>
-                                          <span className="_8sow">
-                                            <button
-                                              data-tooltip-content="Khác"
-                                              data-hover="tooltip"
-                                              data-tooltip-position="above"
-                                              data-tooltip-alignh="center"
-                                              className="_8sop _2rvp"
-                                              aria-label="Khác"
-                                            >
-                                              <i className="img sp_1xGvg2WAnAI sx_f2dd75"></i>
-                                            </button>
-                                          </span>
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="_40qi"></div>
-                              </div>
-                              <div className="_5wd4 _1nc6">
-                                <div className="._1dlq _h8t">
-                                  <div
-                                    className="_5wd9 direction_ltr clearfix"
-                                    data-tooltip-content="Thứ Năm 20:17chiều"
-                                    data-hover="tooltip"
-                                    data-tooltip-position="right"
-                                  >
-                                    <div className="_1e-x _n4o">
-                                      <div className="_3_bl">
-                                        <div className="_3_bp"></div>
-                                        <div className="_5w1r _3_om _5wdf">
-                                          <div className="_4gx_">
-                                            <div className="_1aa6">
-                                              <div className="">
-                                                <span className="_5yl5">
-                                                  <span>
-                                                    định jump phát nữa deal
-                                                    double
-                                                  </span>
-                                                </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <span className="_40fu" data-hover="none">
-                                        <span className="_1z_2 _2u_d">
-                                          <span className="_8sow">
-                                            <button
-                                              data-tooltip-content="Bày tỏ cảm xúc"
-                                              data-hover="tooltip"
-                                              data-tooltip-position="above"
-                                              data-tooltip-alignh="center"
-                                              className="_8sop _5zvq"
-                                              aria-label="Bày tỏ cảm xúc"
-                                              data-testid="react_to_message_button"
-                                            >
-                                              <i className="img sp_OzXfMioWn3- sx_8e5ac5"></i>
-                                            </button>
-                                          </span>
-                                          <span className="_8sow">
-                                            <button
-                                              data-tooltip-content="Khác"
-                                              data-hover="tooltip"
-                                              data-tooltip-position="above"
-                                              data-tooltip-alignh="center"
-                                              className="_8sop _2rvp"
-                                              aria-label="Khác"
-                                            >
-                                              <i className="img sp_1xGvg2WAnAI sx_f2dd75"></i>
-                                            </button>
-                                          </span>
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="_40qi"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="_4tdt _ua1">
-                          <div className="_31o4">
-                            <div aria-hidden="true" className="_6--1">
-                              <a
-                                aria-label="Chung Nguyen - Thứ Năm 20:18chiều"
-                                data-hover="tooltip"
-                                data-tooltip-content="Chung Nguyen - Thứ Năm 20:18chiều"
-                                data-tooltip-position="right"
-                                className="_2yg8"
-                                data-hovercard="/ajax/hovercard/chat.php?id=100006902562238&amp;type=chat"
-                                href="https://www.facebook.com/profile.php?id=100006902562238"
-                              >
-                                <div className="_1gyw _55lt">
-                                  <img
-                                    width="28"
-                                    height="28"
-                                    alt=""
-                                    className="img"
-                                    src="https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-1/cp0/p60x60/26220410_2036967636543302_189946391717444754_o.jpg?_nc_cat=103&amp;_nc_ohc=AK2U1V62UnEAX9_mNBV&amp;_nc_ht=scontent.fhph1-2.fna&amp;oh=d2440b7b5beebc52b25bd13f21f7fb2f&amp;oe=5ECA2944"
-                                  />
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                          <div className="_ua2">
-                            <div className="_4tdv">
-                              <div className="_5wd4 _1nc7 _2cnu">
-                                <div className="._1dlq _h8t">
-                                  <div className="_5wd9 direction_ltr clearfix">
-                                    <div className="_1e-x _n4o">
-                                      <div className="_3_bl">
-                                        <div className="_3_bp"></div>
-                                        <div className="_5w1r _3_om _5wdf">
-                                          <div className="_4gx_">
-                                            <div className="_1aa6">
-                                              <div className="">
-                                                <span className="_5yl5">
-                                                  <span>đúng goy</span>
-                                                </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <span className="_40fu" data-hover="none">
-                                        <span className="_1z_2 _2u_d">
-                                          <span className="_8sow">
-                                            <button
-                                              data-tooltip-content="Bày tỏ cảm xúc"
-                                              data-hover="tooltip"
-                                              data-tooltip-position="above"
-                                              data-tooltip-alignh="center"
-                                              className="_8sop _5zvq"
-                                              aria-label="Bày tỏ cảm xúc"
-                                              data-testid="react_to_message_button"
-                                            >
-                                              <i className="img sp_OzXfMioWn3- sx_8e5ac5"></i>
-                                            </button>
-                                          </span>
-                                          <span className="_8sow">
-                                            <button
-                                              data-tooltip-content="Khác"
-                                              data-hover="tooltip"
-                                              data-tooltip-position="above"
-                                              data-tooltip-alignh="center"
-                                              className="_8sop _2rvp"
-                                              aria-label="Khác"
-                                            >
-                                              <i className="img sp_1xGvg2WAnAI sx_f2dd75"></i>
-                                            </button>
-                                          </span>
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="_40qi"></div>
-                              </div>
-                              <div className="_5wd4 _1nc7 _2cnu">
-                                <div className="._1dlq _h8t">
-                                  <div className="_5wd9 direction_ltr clearfix">
-                                    <div className="_1e-x _n4o">
-                                      <div className="_3_bl">
-                                        <div className="_3_bp"></div>
-                                        <div className="_5w1r _3_om _5wdf">
-                                          <div className="_4gx_">
-                                            <div className="_1aa6">
-                                              <div className="">
-                                                <span className="_5yl5">
-                                                  <span>phải thế chứ</span>
-                                                </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <span className="_40fu" data-hover="none">
-                                        <span className="_1z_2 _2u_d">
-                                          <span className="_8sow">
-                                            <button
-                                              data-tooltip-content="Bày tỏ cảm xúc"
-                                              data-hover="tooltip"
-                                              data-tooltip-position="above"
-                                              data-tooltip-alignh="center"
-                                              className="_8sop _5zvq"
-                                              aria-label="Bày tỏ cảm xúc"
-                                              data-testid="react_to_message_button"
-                                            >
-                                              <i className="img sp_OzXfMioWn3- sx_8e5ac5"></i>
-                                            </button>
-                                          </span>
-                                          <span className="_8sow">
-                                            <button
-                                              data-tooltip-content="Khác"
-                                              data-hover="tooltip"
-                                              data-tooltip-position="above"
-                                              data-tooltip-alignh="center"
-                                              className="_8sop _2rvp"
-                                              aria-label="Khác"
-                                            >
-                                              <i className="img sp_1xGvg2WAnAI sx_f2dd75"></i>
-                                            </button>
-                                          </span>
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="_40qi"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
+                        <MessageCluster user={user0} />
+                        <MessageCluster user={user1} />
                         <div className="_4gd0">
                           <div className="_510g _510e seen">
                             <div className="_510h"></div>
