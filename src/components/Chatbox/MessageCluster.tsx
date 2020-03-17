@@ -20,8 +20,14 @@ export default class MessageCluster extends Component<MessageClusterProps> {
         ) : null}
         <div className="cluster__outer">
           <div className="">
-            <Message content="that's right" user={user.id !== me ? "others" : "me"}/>
-            <Message content="should be that!!" user={user.id !== me ? "others" : "me"}/>
+            <Message
+              content="that's right"
+              user={user.id !== me ? "others" : "me"}
+            />
+            <Message
+              content="should be that!!"
+              user={user.id !== me ? "others" : "me"}
+            />
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import Template from "./templates";
 const store = configureStore();
 
 class App extends Component {
-  render() {
+  public render() {
     return (
       <Provider store={store}>
         <Template />

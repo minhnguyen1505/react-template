@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
-import Field from "../../components/FormInput/Field";
-import ErrorMessage from "../../components/FormInput/ErrorMessage";
+import { Form, Icon, Input, Button, Checkbox } from "antd";
 import { connect } from "react-redux";
 import { loginUserAction } from "../../store/actions/actionAuth";
 import * as yup from "yup";
@@ -40,16 +39,6 @@ class Login extends Component<LoginProps, LoginState> {
     loginErrors[name] = error;
 
     this.setState({ dataLogin, loginErrors });
-    // const dataClone = { ...this.state.dataLogin };
-    // const dataElement = { ...dataClone[id] };
-    // dataElement.value = event.target.value;
-    // dataElement.valid = utils.utilsValidation(
-    //   dataElement.value,
-    //   dataElement.validation
-    // );
-    // dataElement.touched = true;
-    // dataClone[id] = dataElement;
-    // this.setState({ dataLogin: dataClone });
   };
 
   isValidate() {
@@ -62,7 +51,6 @@ class Login extends Component<LoginProps, LoginState> {
   }
 
   handleSubmit = (values: any) => {
-    console.log("data", values);
     const { loginUserAction } = this.props;
     loginUserAction(values);
   };
@@ -113,7 +101,7 @@ class Login extends Component<LoginProps, LoginState> {
           touched,
           handleBlur
         }) => (
-          <form className="signin" onSubmit={handleSubmit}>
+          <Form className="signin" onSubmit={handleSubmit}>
             <div className="card signin__card">
               <div className="signin__wrapper">
                 <Link to="/" className="brand">
@@ -122,60 +110,55 @@ class Login extends Component<LoginProps, LoginState> {
                   </div>
                 </Link>
                 <h5 className="heading">Sign in to your account</h5>
-                <Field
-                  type="text"
-                  placeholder="Username"
-                  name="username"
-                  value={values.username}
-                  onChange={handleChange("username")}
-                  onBlur={handleBlur("username")}
-                />
-                {touched.username && errors.username ? (
-                  <ErrorMessage>{errors.username}</ErrorMessage>
-                ) : null}
-                <Field
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={values.password}
-                  onChange={handleChange("password")}
-                  onBlur={handleBlur("password")}
-                />
-                {touched.password && errors.password ? (
-                  <ErrorMessage>{errors.password}</ErrorMessage>
-                ) : null}
-                <div className="checkbox">
-                  <div className="form-check custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      className="custom-control-input"
-                      id="stateCheck1"
-                    />
-                    <label
-                      className="custom-control-label"
-                      htmlFor="stateCheck1"
-                    >
-                      {" "}
-                      Remember me
-                    </label>
-                  </div>
-                  <a href="auth.forgot-password.html" className="float-right">
-                    Forgot Password?
-                  </a>
-                </div>
-                <button
-                  type="submit"
-                  className="btn btn--primary btn--full btn-login"
+                <Form.Item
+                  hasFeedback={!!errors.username}
+                  validateStatus={errors.username && "error"}
+                  help={errors.username}
                 >
-                  Sign In
-                </button>
+                  <Input
+                    prefix={
+                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                    }
+                    type="text"
+                    placeholder="Username"
+                    value={values.username}
+                    onChange={handleChange("username")}
+                    onBlur={handleBlur("username")}
+                  />
+                </Form.Item>
+                <Form.Item
+                  hasFeedback={!!errors.password}
+                  validateStatus={errors.password && "error"}
+                  help={errors.password}
+                >
+                  <Input.Password
+                    prefix={
+                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                    }
+                    type="password"
+                    placeholder="Password"
+                    value={values.password}
+                    onChange={handleChange("password")}
+                    onBlur={handleBlur("password")}
+                  />
+                </Form.Item>
+
+                <Form.Item>
+                  <Checkbox>Remember me</Checkbox>
+                  <a className="float-right" href="">
+                    Forgot password
+                  </a>
+                  <Button type="primary" htmlType="submit" className="w-100">
+                    Sign in
+                  </Button>
+                </Form.Item>
                 <p className="text-muted">
-                  Don't have an account yet?
+                  Don't have an account?
                   <Link to="signup"> Create an account</Link>
                 </p>
               </div>
             </div>
-          </form>
+          </Form>
         )}
       </Formik>
     );

@@ -9,14 +9,14 @@ import AuthTemplate from "./AuthTemplate/AuthTemplate";
 import PublicTemplate from "./PublicTemplate/PublicTemplate";
 import authRoutes from "../router/authRoutes";
 import publicRoutes from "../router/publicRoutes";
-// import history from "../router/history";
+import history from "../router/history";
 import { checkCookie } from "../common/helpers/cookies";
 
 // import { connect } from 'react-redux';
 // import NotFound from './public/NotFound';
 
 interface TemplateProps {
-  // history: any;
+  history?: any;
 }
 interface TemplateState {
   isLoggedIn: boolean;

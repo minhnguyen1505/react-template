@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Layout, Menu, Icon } from "antd";
 import { setCookie } from "../../common/helpers/cookies";
 import "./Navigation.scss";
 
 interface NavigationProps {
   isPublic: boolean;
+  collapsed?: boolean;
 }
+
+const { Sider } = Layout;
+const { SubMenu } = Menu;
 
 class Navigation extends Component<NavigationProps> {
   signOut(e: any) {
@@ -17,9 +22,20 @@ class Navigation extends Component<NavigationProps> {
   render() {
     const { isPublic } = this.props;
     return (
-      <aside className="sidebar sidebar--left">
-        <div className="sidebar__content">
-          <div className="aside-toolbar">
+      <Layout>
+        <Sider
+          trigger={null}
+          collapsible
+          collapsed={this.props.collapsed}
+          width="255"
+          // style={{
+          //   overflow: "auto",
+          //   height: "100vh",
+          //   position: "fixed",
+          //   left: 0
+          // }}
+        >
+          {/* <div className="aside-toolbar">
             <ul className="site-logo">
               <li>
                 <Link to="/">
@@ -54,80 +70,109 @@ class Navigation extends Component<NavigationProps> {
                 </button>
               </li>
             </ul>
-          </div>
+          </div> */}
 
-          <nav className="main-menu">
-            {!!isPublic ? (
-              <ul className="nav metismenu">
-                <li className="sidebar-header">
-                  <span>Public Items</span>
-                </li>
-                <li className="nav-dropdown">
-                  <Link to="login" className="has-arrow">
-                    <i className="icon dripicons-meter"></i>
+          {!!isPublic ? (
+            <Menu
+              theme="dark"
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
+              mode="inline"
+            >
+              <SubMenu
+                key="sub1"
+                title={
+                  <div className="d-flex align-items-center">
+                    <Icon type="appstore" />
+                    <span>Public Items</span>
+                  </div>
+                }
+              >
+                <Menu.Item key="1">
+                  <Link to="login">
+                    <Icon type="team" />
                     <span>Login</span>
                   </Link>
-                </li>
-                <li className="nav-dropdown">
-                  <Link to="signup" className="has-arrow">
-                    <i className="icon dripicons-article"></i>
+                </Menu.Item>
+                <Menu.Item key="2">
+                  <Link to="signup">
+                    <Icon type="appstore" />
                     <span>Create a free account</span>
                   </Link>
-                </li>
-              </ul>
-            ) : (
-              <ul className="nav metismenu">
-                <li className="sidebar-header">
-                  <span>Authenticated Items</span>
-                </li>
-                <li className="nav-dropdown">
-                  <Link to="home" className="has-arrow">
-                    <i className="icon dripicons-home"></i>
+                </Menu.Item>
+              </SubMenu>
+            </Menu>
+          ) : (
+            <Menu
+              theme="dark"
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
+              mode="inline"
+            >
+              <SubMenu
+                key="sub1"
+                title={
+                  <div className="d-flex align-items-center">
+                    <Icon type="appstore" />
+                    <span>Authenticated Items</span>
+                  </div>
+                }
+              >
+                <Menu.Item key="1">
+                  <Link to="home">
+                    <Icon type="home" />
                     <span>Homepage</span>
                   </Link>
-                </li>
-                <li className="nav-dropdown">
-                  <Link to="profile" className="has-arrow">
-                    <i className="icon dripicons-photo-group"></i>
+                </Menu.Item>
+                <Menu.Item key="2">
+                  <Link to="profile">
+                    <Icon type="appstore" />
                     <span>Your Profile</span>
                   </Link>
-                </li>
-                <li className="nav-dropdown">
-                  <Link to="explore" className="has-arrow">
-                    <i className="icon dripicons-search"></i>
+                </Menu.Item>
+                <Menu.Item key="3">
+                  <Link to="explore">
+                    <Icon type="appstore" />
                     <span>Discover new things</span>
                   </Link>
-                </li>
-                <li className="nav-dropdown">
-                  <Link to="settings" className="has-arrow">
-                    <i className="icon dripicons-toggles"></i>
+                </Menu.Item>
+                <Menu.Item key="4">
+                  <Link to="settings">
+                    <Icon type="appstore" />
                     <span>Settings</span>
                   </Link>
-                </li>
-                <li className="sidebar-header">
-                  <span>Extra Items</span>
-                </li>
-                <li className="nav-dropdown">
-                  <Link to="meeting" className="has-arrow">
-                    <i className="icon dripicons-calendar"></i>
+                </Menu.Item>
+              </SubMenu>
+              <SubMenu
+                key="sub2"
+                title={
+                  <div className="d-flex align-items-center">
+                    <Icon type="appstore" />
+                    <span>Extra Items</span>
+                  </div>
+                }
+              >
+                <Menu.Item key="5">
+                  <Link to="meeting">
+                    <Icon type="appstore" />
                     <span>Arrange meetings</span>
                   </Link>
-                </li>
-                <li className="nav-dropdown">
+                </Menu.Item>
+                <Menu.Item key="6">
                   <a
                     href="javascript:void(0)"
                     className="has-arrow"
-                    onClick={(e) => this.signOut(e)}
+                    onClick={e => this.signOut(e)}
                   >
-                    <i className="icon dripicons-reply-all"></i>
+                    <Icon type="appstore" />
                     <span>Signout</span>
                   </a>
-                </li>
-              </ul>
-            )}
-          </nav>
-        </div>
-      </aside>
+                </Menu.Item>
+              </SubMenu>
+            </Menu>
+          )}
+        </Sider>
+      </Layout>
     );
   }
 }

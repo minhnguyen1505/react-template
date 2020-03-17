@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Calendar from "../../components/Calendar/Calendar";
-import Modal from "../../components/Modal/Modal";
 import "./Meeting.scss";
 
 interface MeetingProps {}
@@ -55,36 +53,7 @@ export default class Meeting extends Component<MeetingProps, MeetingState> {
                       <span>Create</span>
                     </button>
                     <h1>{this.state.visible}</h1>
-                    <Modal
-                      title="Basic Modal"
-                      visible={this.state.visible}
-                      onOk={this.handleOk}
-                      onCancel={this.handleCancel}
-                    >
-                      <div className="row">
-                        <div className="col-3">Icon</div>
-                        <div className="col-9">
-                          <div className="content">
-                            <div className="heading">Reading Adventure Day</div>
-                            <div className="description">
-                              Let us know if you're coming!
-                            </div>
-                            <div className="type">
-                              Meeting || Event || Casting
-                            </div>
-                            <hr />
-                            <div className="heading">Reading Adventure Day</div>
-                            <div className="description">
-                              Let us know if you're coming!
-                            </div>
-                            <div className="type">
-                              Meeting || Event || Casting
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Modal>
-                    <Calendar />
+                    {/* Modal */}
                     <div className="notetip">
                       <div className="notetip__heading">Calendar</div>
                       <ul className="notetip__list">

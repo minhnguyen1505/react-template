@@ -1,5 +1,17 @@
 @import "../../assets/scss/global.scss";
-
+.sidebar-header {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0.625rem 1.25rem;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  font-size: calc-rem-value(11);
+  color: rgba(120, 141, 180, 0.6);
+  span {
+    font-size: inherit;
+  }
+}
 .sidebar {
   background-color: $white;
   min-height: 100vh;
@@ -95,19 +107,7 @@
       }
     }
   }
-  .sidebar-header {
-    display: block;
-    position: relative;
-    margin: 0;
-    padding: 0.625rem 1.25rem;
-    text-transform: uppercase;
-    font-size: 0.6875rem;
-    font-size: calc-rem-value(11);
-    color: rgba(120, 141, 180, 0.6);
-    span {
-      font-size: inherit;
-    }
-  }
+  
   .nav-dropdown {
     a {
       border-radius: 0;

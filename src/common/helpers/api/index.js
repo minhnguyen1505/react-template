@@ -14,7 +14,6 @@ const request = (
   options = { method: REQUEST_TYPE.GET, useFormData: false }
 ) => {
   const data = { ...(options.data || {}) };
-  let req;
   const reqOptions = { ...options, data };
   if (
     [REQUEST_TYPE.POST, REQUEST_TYPE.PUT, REQUEST_TYPE.PATCH].includes(
@@ -37,7 +36,7 @@ const request = (
     reqOptions.headers = { "Content-Type": "multipart/form-data" };
   }
 
-  req = axiosInstance(url, reqOptions);
+  const req = axiosInstance(url, reqOptions);
 
   return req.catch(errorHandlerException);
 };

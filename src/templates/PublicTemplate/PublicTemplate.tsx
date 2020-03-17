@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "../../components/Navigation/Navigation";
-// import NavigationTop from "../../components/NavigationTop/NavigationTop";
+import { Icon } from "antd";
 import "./PublicTemplate.scss";
 
 interface PublicProps {
@@ -8,11 +8,27 @@ interface PublicProps {
 }
 
 export default class PublicTemplate extends Component<PublicProps> {
+  state = {
+    collapsed: false
+  };
+
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  };
+
   render() {
     const Component = this.props.children;
+    const { collapsed } = this.state;
     return (
       <div className="content-public">
-        <Navigation isPublic={true} />
+        <Navigation isPublic={true} collapsed={collapsed} />
+        <Icon
+          className="trigger"
+          type={this.state.collapsed ? "menu-unfold" : "menu-fold"}
+          onClick={this.toggle}
+        />
         <div className="content-wrapper">{Component}</div>
       </div>
     );

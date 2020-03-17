@@ -1,6 +1,6 @@
-import { getCookie } from '../../cookies'
+import { getCookie } from "../../cookies";
 
-export const setTokenHeader = async (config) => {
+export const setTokenHeader = async config => {
   // Get token from storage
   // set token to requests's header before sending to REST api
   const token = await getCookie("token");

@@ -9,11 +9,10 @@ export default function createStoreWithMiddleware() {
   const sagaMiddleware = createSagaMiddleware();
   // Add all middlewares into an array
   const middleware = [sagaMiddleware];
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   // Add the Redux dev tools and middleware code together
-  const enhancers = composeEnhancers(
-    applyMiddleware(...middleware),
-  );
+  const enhancers = composeEnhancers(applyMiddleware(...middleware));
 
   // Create a store with the reducers and middleware
   const store = createStore(reducers, enhancers);
