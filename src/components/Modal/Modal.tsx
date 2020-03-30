@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { CSSTransition } from "react-transition-group";
 import PropTypes from "prop-types";
 import "./Modal.scss";
 
@@ -109,45 +108,30 @@ export default class Modal extends Component<ModalProps> {
       <React.Fragment>
         {/* {visible ? ( */}
         <div className="modal-root">
-          <CSSTransition
-            classNames="fade"
-            timeout={200}
-            unmountOnExit
-            appear
-            in={this.props.visible}
-          >
-            <div className="modal-root__mask" onClick={this.handleCancel}></div>
-          </CSSTransition>
-          <CSSTransition
-            classNames="zoom"
-            timeout={400}
-            unmountOnExit
-            appear
-            in={this.props.visible}
-          >
-            <div className="modal-root__wrapper modal-centered" role="dialog">
-              <div role="document" className="modal-transition">
-                <div className="modal-content">
-                  <button
-                    type="button"
-                    className="modal-close"
-                    onClick={this.handleCancel}
-                  >
-                    <span className="modal-close-x">
-                      <i className="icon dripicons-cross"></i>
-                    </span>
-                  </button>
-                  <div className="modal-header">
-                    <div className="modal-title">{title}</div>
-                  </div>
-                  <div className="modal-body">{children}</div>
-                  <div className="modal-footer">
-                    {footer === undefined ? <this.RenderFooter /> : footer}
-                  </div>
+          <div className="modal-root__mask" onClick={this.handleCancel}></div>
+
+          <div className="modal-root__wrapper modal-centered" role="dialog">
+            <div role="document" className="modal-transition">
+              <div className="modal-content">
+                <button
+                  type="button"
+                  className="modal-close"
+                  onClick={this.handleCancel}
+                >
+                  <span className="modal-close-x">
+                    <i className="icon dripicons-cross"></i>
+                  </span>
+                </button>
+                <div className="modal-header">
+                  <div className="modal-title">{title}</div>
+                </div>
+                <div className="modal-body">{children}</div>
+                <div className="modal-footer">
+                  {footer === undefined ? <this.RenderFooter /> : footer}
                 </div>
               </div>
             </div>
-          </CSSTransition>
+          </div>
         </div>
         {/* ) : null} */}
       </React.Fragment>

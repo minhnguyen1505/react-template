@@ -4,7 +4,7 @@ import Meeting from "../containers/Meeting/Meeting";
 const authRoutes = [
   {
     component: HomePage,
-    path: "/home"
+    path: "/"
   },
   {
     component: Meeting,
