@@ -119,7 +119,7 @@ class Navigation extends Component<NavigationProps> {
                 }
               >
                 <Menu.Item key="1">
-                  <Link to="home">
+                  <Link to="/">
                     <Icon type="home" />
                     <span>Homepage</span>
                   </Link>

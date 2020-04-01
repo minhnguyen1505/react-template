@@ -1,10 +1,10 @@
 import axios from "axios";
 import { registerIntercepters } from "./intercepters";
 
-const API_URL = process.env.REACT_APP_BASE_API;
+const COIN_API_URL = process.env.REACT_APP_COIN_API;
 
-const axiosInstance = axios.create({
-  baseURL: API_URL,
+const axiosInstanceCoin = axios.create({
+  baseURL: COIN_API_URL,
   headers: {
     post: {
       "Content-Type": "multipart/form-data; application/json"
@@ -18,6 +18,6 @@ const axiosInstance = axios.create({
   },
 });
 
-registerIntercepters(axiosInstance);
+registerIntercepters(axiosInstanceCoin);
 
-export default axiosInstance;
+export default axiosInstanceCoin;

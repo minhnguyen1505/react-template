@@ -47,6 +47,7 @@ class Template extends Component<TemplateProps, TemplateState> {
               {authRoutes.map((route, index) => {
                 return (
                   <Route
+                    exact={route.exact}
                     key={index}
                     path={route.path}
                     history={history}

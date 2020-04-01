@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./Meeting.scss";
 
-interface MeetingProps {}
+interface MeetingProps {
+  type: string;
+}
 interface MeetingState {
   visible: boolean;
   messages: any[];

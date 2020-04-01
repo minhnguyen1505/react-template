@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import moment from "moment";
 import "./Calendar.scss";
 
-interface CalendarProps {}
+interface CalendarProps {
+  type: string;
+}
 interface CalendarState {
   month: any;
   selected: any;

@@ -77,7 +77,7 @@ class Login extends Component<LoginProps, LoginState> {
       const login = loginStore.response;
       if (login.success) {
         console.log("success", login);
-        window.location.pathname = "home";
+        window.location.pathname = "/";
       } else {
         const message = login;
         console.log("messageError", message);

@@ -1,0 +1,162 @@
+.crypto-tabs {
+  position: relative;
+  margin-top: 40px;
+  border-bottom: 0px;
+  &__pagination {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    span {
+      padding: 0 5px;
+    }
+  }
+  &__listing-tabs {
+    .tab-header {
+      list-style-type: none;
+      margin: 0px;
+      padding: 0px;
+      border-bottom: 1px solid rgb(221, 221, 221);
+      li {
+        display: inline-block;
+        line-height: 1.42857;
+        margin-bottom: -1px;
+        color: rgb(16, 112, 224);
+        border-width: 1px;
+        border-style: solid;
+        border-color: transparent;
+        border-image: initial;
+        border-radius: 3px 3px 0px 0px;
+        cursor: pointer;
+        &:hover {
+          color: rgba(16, 112, 224, 0.85);
+          background: rgb(245, 247, 248);
+          border-color: rgb(225, 229, 234);
+        }
+        .tab-header__trigger {
+          font-size: 14px;
+          padding: 10px 15px;
+        }
+        &.selected {
+          border-color: rgb(221, 221, 221) rgb(221, 221, 221) transparent;
+          background: rgb(255, 255, 255);
+          border-bottom: 1px solid transparent;
+          .tab-header__trigger {
+            font-weight: bold;
+            color: rgba(23, 24, 27, 0.85);
+          }
+        }
+        a {
+          color: rgb(16, 112, 224);
+        }
+      }
+    }
+  }
+}
+
+.core-td {
+  vertical-align: middle;
+  line-height: 1.42857;
+  white-space: nowrap;
+  box-shadow: rgb(225, 229, 234) 0px -1px 0px 0px inset;
+  padding: 6px;
+}
+.core-sticky {
+  position: sticky;
+  z-index: 1011;
+  text-align: center;
+  background: rgb(255, 255, 255);
+  &:nth-child(1) {
+    left: 0;
+  }
+  &:nth-child(2) {
+    left: 40px;
+    max-width: 150px;
+  }
+}
+.core-left {
+  text-align: left;
+}
+.core-right {
+  text-align: right;
+}
+.core-sortable {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.crypto-table {
+  position: relative;
+  overflow-x: auto;
+  font-size: 14px;
+  color: rgba(23, 24, 27, 0.85);
+  background: rgb(255, 255, 255);
+  border-radius: 3px;
+  min-height: 140px;
+  margin-bottom: 24px;
+  table {
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+    thead {
+      tr {
+        font-weight: bold;
+        th {
+          @extend .core-td;
+          &.width-40 {
+            min-width: 40px;
+          }
+          &.sticky {
+            @extend .core-sticky;
+          }
+          &.left {
+            @extend .core-left;
+          }
+          &.right {
+            @extend .core-right;
+          }
+          &.sortable {
+            @extend .core-sortable;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          @extend .core-td;
+          &.sticky {
+            @extend .core-sticky;
+          }
+          &.left {
+            @extend .core-left;
+          }
+          &.right {
+            @extend .core-right;
+          }
+          &.sortable {
+            @extend .core-sortable;
+          }
+          a {
+            color: rgb(16, 112, 224);
+          }
+          .crypto-icon {
+            margin-right: 5px;
+          }
+          .crypto-link {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: rgba(23, 24, 27, 0.85);
+            font-weight: 600;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}

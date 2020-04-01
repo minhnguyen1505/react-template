@@ -1,4 +1,5 @@
 import axiosInstance from "./axiosInstance";
+import axiosInstanceCoin from "./axiosInstanceCoin";
 import { ObjectToFormData } from "../../../common/helpers";
 import { errorHandlerException } from "./responseHandlers/errorHandler";
 import { REQUEST_TYPE } from "../../../common/config";
@@ -11,7 +12,7 @@ import { REQUEST_TYPE } from "../../../common/config";
  */
 const request = (
   url,
-  options = { method: REQUEST_TYPE.GET, useFormData: false }
+  options = { method: REQUEST_TYPE.GET, useFormData: false, typeAPI: "default" }
 ) => {
   const data = { ...(options.data || {}) };
   const reqOptions = { ...options, data };
@@ -35,10 +36,14 @@ const request = (
 
     reqOptions.headers = { "Content-Type": "multipart/form-data" };
   }
-
-  const req = axiosInstance(url, reqOptions);
-
-  return req.catch(errorHandlerException);
+  if (options.typeAPI === "coin") {
+    const req = axiosInstanceCoin(url, reqOptions);
+    return req.catch(errorHandlerException);
+  }
+  else {
+    const req = axiosInstance(url, reqOptions);
+    return req.catch(errorHandlerException);
+  }
 };
 
 /**
