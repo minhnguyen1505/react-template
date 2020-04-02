@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import "./HomePage.scss";
-import CryptocurrencyMainChart from "../../components/Cryptocurrency/CryptocurrencyMainChart";
+import React, { Component } from 'react';
+import './HomePage.scss';
+import CryptocurrencyMainChart from '../../components/Cryptocurrency/CryptocurrencyMainChart';
 
 export default class HomePage extends Component {
   render() {

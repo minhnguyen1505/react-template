@@ -3,10 +3,10 @@ export const errorObject = (status, message) => ({
   message
 });
 
-export const errorHandlerException = res => {
+export const errorHandlerException = (res) => {
   const code = res.status ? res.status : res.code;
   const response = res.status ? res.data : res;
-  const errorMessage = response.message !== null ? response.message : "";
+  const errorMessage = response.message !== null ? response.message : '';
   switch (code) {
     case 200: // Success
     case 201:

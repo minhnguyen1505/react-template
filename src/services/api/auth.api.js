@@ -1,9 +1,9 @@
-import api from "../../common/helpers/api";
-import { API_URL } from "../../common/config";
+import api from '../../common/helpers/api';
+import { API_URL } from '../../common/config';
 
-export const login = authInfo => {
+export const login = (authInfo) => {
   return new Promise(async (resolve, reject) => {
-    console.log("run api");
+    console.log('run api');
     try {
       const { username, email, password } = authInfo;
       const resp = await api.post(`${API_URL.LOGIN}`, {
@@ -12,7 +12,7 @@ export const login = authInfo => {
         password
       });
       if (resp) {
-        console.log("run here", resp);
+        console.log('run here', resp);
         resolve(resp);
       }
     } catch (err) {

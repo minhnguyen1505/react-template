@@ -114,6 +114,9 @@
           &.sticky {
             @extend .core-sticky;
           }
+          &.center {
+            text-align: center;
+          }
           &.left {
             @extend .core-left;
           }
@@ -132,6 +135,12 @@
           @extend .core-td;
           &.sticky {
             @extend .core-sticky;
+            .flex {
+              display: flex;
+            }
+          }
+          &.center {
+            text-align: center;
           }
           &.left {
             @extend .core-left;
@@ -154,6 +163,12 @@
             color: rgba(23, 24, 27, 0.85);
             font-weight: 600;
             overflow: hidden;
+          }
+          .positive {
+            color: rgb(0, 158, 115);
+          }
+          .negative {
+            color: rgb(217, 64, 64);
           }
         }
       }

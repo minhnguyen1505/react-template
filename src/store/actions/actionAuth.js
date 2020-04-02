@@ -1,4 +1,4 @@
-import types from "./types";
+import types from './types';
 
 // export const registerUserAction = user => {
 //   return {
@@ -7,6 +7,6 @@ import types from "./types";
 //   };
 // };
 
-export const loginUserAction = data => {
+export const loginUserAction = (data) => {
   return { type: types.LOGIN_REQUEST, data };
 };

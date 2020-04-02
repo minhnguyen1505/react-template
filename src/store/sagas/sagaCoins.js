@@ -1,6 +1,6 @@
-import { put, call } from "redux-saga/effects";
-import * as apiServices from "../../services";
-import types from "../actions/types";
+import { put, call } from 'redux-saga/effects';
+import * as apiServices from '../../services';
+import types from '../actions/types';
 
 export function* coinsMarketsSaga(payload) {
   console.log('payload', payload);

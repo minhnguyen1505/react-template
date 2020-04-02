@@ -1,20 +1,20 @@
-import FrontPage from "../containers/FrontPage/FrontPage";
-import LogIn from "../containers/LogIn/LogIn";
-import SignUp from "../containers/SignUp/SignUp";
+import FrontPage from '../containers/FrontPage/FrontPage';
+import LogIn from '../containers/LogIn/LogIn';
+import SignUp from '../containers/SignUp/SignUp';
 
 const publicRoutes = [
   {
     component: FrontPage,
-    path: "/welcome",
+    path: '/welcome',
     exact: true
   },
   {
     component: LogIn,
-    path: "/login"
+    path: '/login'
   },
   {
     component: SignUp,
-    path: "/signup"
+    path: '/signup'
   }
 ];
 

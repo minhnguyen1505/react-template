@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import Avatar from "./Avatar";
-import MessageCluster from "./MessageCluster";
-import "./Chatbox.scss";
+import React, { Component } from 'react';
+import Avatar from './Avatar';
+import MessageCluster from './MessageCluster';
+import './Chatbox.scss';
 
 export default class Chatbox extends Component {
   render() {
     const user0 = {
       id: 0,
-      name: "Minh Nguyen"
+      name: 'Minh Nguyen'
     };
     const user1 = {
       id: 1,
-      name: "Chung Nguyen",
+      name: 'Chung Nguyen',
       image:
-        "https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-1/cp0/p60x60/26220410_2036967636543302_189946391717444754_o.jpg?_nc_cat=103&_nc_ohc=AK2U1V62UnEAX9_mNBV&_nc_ht=scontent.fhph1-2.fna&oh=d2440b7b5beebc52b25bd13f21f7fb2f&oe=5ECA2944",
-      link: "https://www.facebook.com/profile.php?id=100006902562238",
-      status: "online"
+        'https://scontent.fhph1-2.fna.fbcdn.net/v/t31.0-1/cp0/p60x60/26220410_2036967636543302_189946391717444754_o.jpg?_nc_cat=103&_nc_ohc=AK2U1V62UnEAX9_mNBV&_nc_ht=scontent.fhph1-2.fna&oh=d2440b7b5beebc52b25bd13f21f7fb2f&oe=5ECA2944',
+      link: 'https://www.facebook.com/profile.php?id=100006902562238',
+      status: 'online'
     };
     return (
       <div className="chatbox">
@@ -56,8 +56,7 @@ export default class Chatbox extends Component {
                       <div className="tool">
                         <div
                           className="tool__wrapper"
-                          id="chatTabSettingButton"
-                        >
+                          id="chatTabSettingButton">
                           <a href="#">
                             <i className="dripicons-toggles"></i>
                           </a>
@@ -79,8 +78,7 @@ export default class Chatbox extends Component {
                   <div className="chatframe__content">
                     <div
                       className="chatframe__init"
-                      style={{ display: "none" }}
-                    >
+                      style={{ display: 'none' }}>
                       <div className="_4po7">
                         <div className="accessible_elem _2kwv">
                           Bắt đầu cuộc trò chuyện
@@ -164,8 +162,7 @@ export default class Chatbox extends Component {
               <div
                 className="fbNubFlyoutFooter"
                 data-testid="composer_root"
-                style={{ display: "none" }}
-              >
+                style={{ display: 'none' }}>
                 <div className="_1d4_" role="presentation">
                   <div className="_552h">
                     <div className="">
@@ -184,18 +181,15 @@ export default class Chatbox extends Component {
                                 aria-describedby="placeholder-eohu"
                                 aria-expanded="false"
                                 className="notranslate _5rpu"
-                                role="combobox"
-                              >
+                                role="combobox">
                                 <div data-contents="true">
                                   <div
                                     data-block="true"
                                     data-editor="eohu"
-                                    data-offset-key="9v4a5-0-0"
-                                  >
+                                    data-offset-key="9v4a5-0-0">
                                     <div
                                       data-offset-key="9v4a5-0-0"
-                                      className="_1mf _1mj"
-                                    >
+                                      className="_1mf _1mj">
                                       <span data-offset-key="9v4a5-0-0">
                                         <br data-text="true" />
                                       </span>
@@ -212,20 +206,17 @@ export default class Chatbox extends Component {
                   <ul className="_552n _22v_ _6jv5 _6jv6">
                     <li
                       className="_13f-"
-                      data-testid="composer_photo_uploader_root"
-                    >
+                      data-testid="composer_photo_uploader_root">
                       <form
                         action="https://upload.facebook.com/ajax/mercury/upload.php"
                         className="_vzk _4uld"
                         title="Thêm ảnh"
-                        method="post"
-                      >
+                        method="post">
                         <input type="hidden" name="attach_id" />
                         <input type="hidden" name="images_only" value="true" />
                         <div
                           className="_6gd _m _4q60 _3rzn _6a"
-                          data-testid="photo_upload_button"
-                        >
+                          data-testid="photo_upload_button">
                           <span className="_4q61 _6gb _6wm4 _6ge _6jtn">
                             <i className="hidden_elem"></i>
                             <input
@@ -241,34 +232,32 @@ export default class Chatbox extends Component {
                       </form>
                     </li>
                     <li className="_6gd _13ge">
-                      {" "}
-                      <a className="_6gb _6wm4 _6gf _6jtm" href="#"></a>{" "}
+                      {' '}
+                      <a className="_6gb _6wm4 _6gf _6jtm" href="#"></a>{' '}
                     </li>
                     <li className="_6gd _13gf">
-                      {" "}
-                      <a className="_6gb _6wm4 _6gs _6jtq" href="#"></a>{" "}
+                      {' '}
+                      <a className="_6gb _6wm4 _6gs _6jtq" href="#"></a>{' '}
                     </li>
                     <li className="_6gd _13gg">
-                      {" "}
-                      <a className="_6gb _6wm4 _3oxr _6jtr" href="#"></a>{" "}
+                      {' '}
+                      <a className="_6gb _6wm4 _3oxr _6jtr" href="#"></a>{' '}
                     </li>
                     <li className="_6gd _13ga">
-                      {" "}
-                      <a className="_6gb _6wm4 _4cf0 _6jtp" href="#"></a>{" "}
+                      {' '}
+                      <a className="_6gb _6wm4 _4cf0 _6jtp" href="#"></a>{' '}
                     </li>
                     <li className="_13gd">
                       <form
                         action="https://upload.facebook.com/ajax/mercury/upload.php"
                         className="_vzk _4uld"
                         title="Thêm file"
-                        method="post"
-                      >
+                        method="post">
                         <input type="hidden" name="attach_id" />
                         <input type="hidden" name="images_only" value="false" />
                         <div
                           className="_6gd _m _4q60 _3rzn _6a"
-                          data-testid="photo_upload_button"
-                        >
+                          data-testid="photo_upload_button">
                           <span className="_4q61 _6gb _6wm4 _6gg _6jto">
                             <i className="hidden_elem"></i>
                             <input
@@ -293,8 +282,7 @@ export default class Chatbox extends Component {
                         data-testid="send_a_like_button"
                         role="button"
                         title="Gửi lượt thích"
-                        href="#"
-                      ></a>
+                        href="#"></a>
                     </li>
                   </ul>
                 </div>

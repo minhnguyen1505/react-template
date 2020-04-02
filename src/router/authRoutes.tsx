@@ -1,15 +1,15 @@
-import HomePage from "../containers/HomePage/HomePage";
-import Meeting from "../containers/Meeting/Meeting";
+import HomePage from '../containers/HomePage/HomePage';
+import Meeting from '../containers/Meeting/Meeting';
 
 const authRoutes = [
   {
     component: HomePage,
-    path: "/",
+    path: '/',
     exact: true
   },
   {
     component: Meeting,
-    path: "/meeting"
+    path: '/meeting'
   }
 ];
 

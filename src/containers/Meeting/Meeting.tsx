@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./Meeting.scss";
+import React, { Component } from 'react';
+import './Meeting.scss';
 
 interface MeetingProps {
   type: string;
@@ -15,7 +15,7 @@ export default class Meeting extends Component<MeetingProps, MeetingState> {
     super(props);
     this.state = {
       visible: false,
-      messages: [{ id: 1, userId: 0, message: "Hello" }],
+      messages: [{ id: 1, userId: 0, message: 'Hello' }],
       user: null
     };
   }
@@ -49,8 +49,7 @@ export default class Meeting extends Component<MeetingProps, MeetingState> {
                   <div className="col-md-3 has-border">
                     <button
                       className="btn btn--full btn--create-task"
-                      onClick={this.showModal}
-                    >
+                      onClick={this.showModal}>
                       <i className="icon dripicons-plus"></i>
                       <span>Create</span>
                     </button>

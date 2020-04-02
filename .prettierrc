@@ -1,0 +1,13 @@
+{
+  "printWidth": 80,
+  "useTabs": false,
+  "no-plusplus": false,
+  "no-param-reassign": false,
+  "trailingComma": "none",
+  "singleQuote": true,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": true,
+  "endOfLine": "auto",
+  "quoteProps": "consistent"
+}

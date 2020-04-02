@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import AuthTemplate from "./AuthTemplate/AuthTemplate";
-import PublicTemplate from "./PublicTemplate/PublicTemplate";
-import authRoutes from "../router/authRoutes";
-import publicRoutes from "../router/publicRoutes";
-import history from "../router/history";
-import { checkCookie } from "../common/helpers/cookies";
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import AuthTemplate from './AuthTemplate/AuthTemplate';
+import PublicTemplate from './PublicTemplate/PublicTemplate';
+import authRoutes from '../router/authRoutes';
+import publicRoutes from '../router/publicRoutes';
+import history from '../router/history';
+import { checkCookie } from '../common/helpers/cookies';
 
 // import NotFound from './public/NotFound';
 

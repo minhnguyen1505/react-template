@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import Navigation from "../../components/Navigation/Navigation";
-import NavigationTop from "../../components/NavigationTop/NavigationTop";
-import "./AuthTemplate.scss";
+import React, { Component } from 'react';
+import Navigation from '../../components/Navigation/Navigation';
+import NavigationTop from '../../components/NavigationTop/NavigationTop';
+import './AuthTemplate.scss';
 
 interface AuthProps {
   children: any;

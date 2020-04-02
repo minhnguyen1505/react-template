@@ -1,25 +1,25 @@
-import React from "react";
-import { shallow, mount, render } from "enzyme";
-import LogIn from "../../containers/LogIn/LogIn";
-import configureStore from "../../store";
+import React from 'react';
+import { shallow, mount, render } from 'enzyme';
+import LogIn from '../../containers/LogIn/LogIn';
+import configureStore from '../../store';
 
 const store = configureStore();
 
-describe("Test case for testing login", () => {
+describe('Test case for testing login', () => {
   let wrapper;
-  test("username check", () => {
+  test('username check', () => {
     wrapper = shallow(<LogIn store={store} />);
-    wrapper.find('input[type="text"]').simulate("change", {
-      target: { name: "username", value: "reactnewbie" }
+    wrapper.find('input[type="text"]').simulate('change', {
+      target: { name: 'username', value: 'reactnewbie' }
     });
-    expect(wrapper.state("username")).toEqual("reactnewbie");
+    expect(wrapper.state('username')).toEqual('reactnewbie');
   });
-  it("password check", () => {
+  it('password check', () => {
     wrapper = shallow(<LogIn store={store} />);
-    wrapper.find('input[type="password"]').simulate("change", {
-      target: { name: "password", value: "reactnewbie123" }
+    wrapper.find('input[type="password"]').simulate('change', {
+      target: { name: 'password', value: 'reactnewbie123' }
     });
-    expect(wrapper.state("password")).toEqual("reactnewbie123");
+    expect(wrapper.state('password')).toEqual('reactnewbie123');
   });
   // it('login check with right data', () => {
   //     wrapper = shallow(<LogIn />);

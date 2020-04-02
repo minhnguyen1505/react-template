@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Formik } from "formik";
-import { Form, Icon, Input, Button, Checkbox } from "antd";
-import { connect } from "react-redux";
-import { loginUserAction } from "../../store/actions/actionAuth";
-import * as yup from "yup";
-import logo from "../../assets/svg/logo.svg";
-import "./LogIn.scss";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Formik } from 'formik';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { connect } from 'react-redux';
+import { loginUserAction } from '../../store/actions/actionAuth';
+import * as yup from 'yup';
+import logo from '../../assets/svg/logo.svg';
+import './LogIn.scss';
 
 interface LoginProps {
   loginUserAction: Function;
@@ -24,9 +24,9 @@ class Login extends Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
     super(props);
     this.state = {
-      accessToken: "",
-      username: "",
-      password: "",
+      accessToken: '',
+      username: '',
+      password: '',
       loginErrors: {}
     };
   }
@@ -43,7 +43,7 @@ class Login extends Component<LoginProps, LoginState> {
 
   isValidate() {
     const { dataLogin, loginErrors } = this.state;
-    const errMessages = Object.keys(loginErrors).filter(k => loginErrors[k]);
+    const errMessages = Object.keys(loginErrors).filter((k) => loginErrors[k]);
     if (!dataLogin.username) return false;
     if (!dataLogin.password) return false;
     if (errMessages.length) return false;
@@ -61,38 +61,37 @@ class Login extends Component<LoginProps, LoginState> {
     const validationSchema = yup.object().shape({
       username: yup
         .string()
-        .label("Username")
-        .required("The username field is required."),
+        .label('Username')
+        .required('The username field is required.'),
       password: yup
         .string()
-        .label("Password")
-        .required("The password field is required.")
-        .min(4, "Password must have at least 4 characters")
+        .label('Password')
+        .required('The password field is required.')
+        .min(4, 'Password must have at least 4 characters')
     });
 
     if (
-      loginStore.hasOwnProperty("response") &&
+      loginStore.hasOwnProperty('response') &&
       loginStore.response !== undefined
     ) {
       const login = loginStore.response;
       if (login.success) {
-        console.log("success", login);
-        window.location.pathname = "/";
+        console.log('success', login);
+        window.location.pathname = '/';
       } else {
         const message = login;
-        console.log("messageError", message);
+        console.log('messageError', message);
       }
     }
 
     return (
       <Formik
         initialValues={{
-          username: "",
-          password: ""
+          username: '',
+          password: ''
         }}
         validationSchema={validationSchema}
-        onSubmit={values => this.handleSubmit(values)}
-      >
+        onSubmit={(values) => this.handleSubmit(values)}>
         {({
           handleChange,
           values,
@@ -112,34 +111,32 @@ class Login extends Component<LoginProps, LoginState> {
                 <h5 className="heading">Sign in to your account</h5>
                 <Form.Item
                   hasFeedback={!!errors.username}
-                  validateStatus={errors.username && "error"}
-                  help={errors.username}
-                >
+                  validateStatus={errors.username && 'error'}
+                  help={errors.username}>
                   <Input
                     prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                      <Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />
                     }
                     type="text"
                     placeholder="Username"
                     value={values.username}
-                    onChange={handleChange("username")}
-                    onBlur={handleBlur("username")}
+                    onChange={handleChange('username')}
+                    onBlur={handleBlur('username')}
                   />
                 </Form.Item>
                 <Form.Item
                   hasFeedback={!!errors.password}
-                  validateStatus={errors.password && "error"}
-                  help={errors.password}
-                >
+                  validateStatus={errors.password && 'error'}
+                  help={errors.password}>
                   <Input.Password
                     prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                      <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />
                     }
                     type="password"
                     placeholder="Password"
                     value={values.password}
-                    onChange={handleChange("password")}
-                    onBlur={handleBlur("password")}
+                    onChange={handleChange('password')}
+                    onBlur={handleBlur('password')}
                   />
                 </Form.Item>
 

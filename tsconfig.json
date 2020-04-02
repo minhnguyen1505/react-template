@@ -15,5 +15,10 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": ["src"]
+  "rules": {
+    "camelcase": "off",
+    "@typescript-eslint/camelcase": "error"
+  },
+  "include": ["src"],
+  "exclude": ["server_node/**", "node_modules/**", "build/**", "coverage/**"]
 }

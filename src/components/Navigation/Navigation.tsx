@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu, Icon } from "antd";
-import { setCookie } from "../../common/helpers/cookies";
-import "./Navigation.scss";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Layout, Menu, Icon } from 'antd';
+import { setCookie } from '../../common/helpers/cookies';
+import './Navigation.scss';
 
 interface NavigationProps {
   isPublic: boolean;
@@ -15,8 +15,8 @@ const { SubMenu } = Menu;
 class Navigation extends Component<NavigationProps> {
   signOut(e: any) {
     e.preventDefault();
-    setCookie("token", null, 0);
-    window.location.pathname = "login";
+    setCookie('token', null, 0);
+    window.location.pathname = 'login';
   }
 
   render() {
@@ -75,10 +75,9 @@ class Navigation extends Component<NavigationProps> {
           {!!isPublic ? (
             <Menu
               theme="dark"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
-              mode="inline"
-            >
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['sub1']}
+              mode="inline">
               <SubMenu
                 key="sub1"
                 title={
@@ -86,8 +85,7 @@ class Navigation extends Component<NavigationProps> {
                     <Icon type="appstore" />
                     <span>Public Items</span>
                   </div>
-                }
-              >
+                }>
                 <Menu.Item key="1">
                   <Link to="login">
                     <Icon type="team" />
@@ -105,10 +103,9 @@ class Navigation extends Component<NavigationProps> {
           ) : (
             <Menu
               theme="dark"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
-              mode="inline"
-            >
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['sub1']}
+              mode="inline">
               <SubMenu
                 key="sub1"
                 title={
@@ -116,8 +113,7 @@ class Navigation extends Component<NavigationProps> {
                     <Icon type="appstore" />
                     <span>Authenticated Items</span>
                   </div>
-                }
-              >
+                }>
                 <Menu.Item key="1">
                   <Link to="/">
                     <Icon type="home" />
@@ -150,8 +146,7 @@ class Navigation extends Component<NavigationProps> {
                     <Icon type="appstore" />
                     <span>Extra Items</span>
                   </div>
-                }
-              >
+                }>
                 <Menu.Item key="5">
                   <Link to="meeting">
                     <Icon type="appstore" />
@@ -162,8 +157,7 @@ class Navigation extends Component<NavigationProps> {
                   <a
                     href="javascript:void(0)"
                     className="has-arrow"
-                    onClick={e => this.signOut(e)}
-                  >
+                    onClick={(e) => this.signOut(e)}>
                     <Icon type="appstore" />
                     <span>Signout</span>
                   </a>

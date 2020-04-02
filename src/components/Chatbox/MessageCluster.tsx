@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import Avatar from "./Avatar";
-import Message from "./Message";
-import "./MessageCluster.scss";
+import React, { Component } from 'react';
+import Avatar from './Avatar';
+import Message from './Message';
+import './MessageCluster.scss';
 
 interface MessageClusterProps {
   user: any;
@@ -22,11 +22,11 @@ export default class MessageCluster extends Component<MessageClusterProps> {
           <div className="">
             <Message
               content="that's right"
-              user={user.id !== me ? "others" : "me"}
+              user={user.id !== me ? 'others' : 'me'}
             />
             <Message
               content="should be that!!"
-              user={user.id !== me ? "others" : "me"}
+              user={user.id !== me ? 'others' : 'me'}
             />
           </div>
         </div>

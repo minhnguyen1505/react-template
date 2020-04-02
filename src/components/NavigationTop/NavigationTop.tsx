@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./NavigationTop.scss";
+import React, { Component } from 'react';
+import './NavigationTop.scss';
 
 class NavigationTop extends Component {
   render() {
@@ -54,7 +54,7 @@ class NavigationTop extends Component {
                 </div>
               </div>
               <a className="dropdown-item" href="apps.messages.html">
-                <i className="icon dripicons-mail"></i> Message{" "}
+                <i className="icon dripicons-mail"></i> Message{' '}
                 <span className="badge badge-accent rounded-circle w-15 h-15 p-0 font-size-10">
                   4
                 </span>
@@ -63,7 +63,7 @@ class NavigationTop extends Component {
                 <i className="icon dripicons-user"></i> Profile
               </a>
               <a className="dropdown-item" href="pages.my-account.html">
-                <i className="icon dripicons-gear"></i> Account Settings{" "}
+                <i className="icon dripicons-gear"></i> Account Settings{' '}
               </a>
               <div className="dropdown-divider"></div>
               <a className="dropdown-item" href="#">

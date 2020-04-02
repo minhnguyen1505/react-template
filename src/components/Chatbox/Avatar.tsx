@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./Avatar.scss";
+import React, { Component } from 'react';
+import './Avatar.scss';
 
 interface AvatarProps {
   image: string;
@@ -17,7 +17,7 @@ export default class Avatar extends Component<AvatarProps> {
             <img src={image} width="28" height="28" alt="" className="img" />
           </div>
         </a>
-        {status ? <div className={"avatar__status " + status}></div> : null}
+        {status ? <div className={'avatar__status ' + status}></div> : null}
       </div>
     );
   }

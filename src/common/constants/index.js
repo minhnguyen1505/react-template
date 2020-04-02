@@ -1,2 +1,2 @@
 // # constants app
-export * from "./storage.const";
+export * from './storage.const';

@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import createSagaMiddleware from "redux-saga";
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
-import reducers from "./reducers";
-import sagas from "./sagas";
+import reducers from './reducers';
+import sagas from './sagas';
 
 export default function createStoreWithMiddleware() {
   // Define middlewares to include

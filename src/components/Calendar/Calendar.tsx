@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import moment from "moment";
-import "./Calendar.scss";
+import React, { Component } from 'react';
+import moment from 'moment';
+import './Calendar.scss';
 
 interface CalendarProps {
   type: string;
@@ -15,26 +15,26 @@ class Calendar extends Component<CalendarProps, CalendarState> {
     super(props);
     this.state = {
       month: moment(),
-      selected: moment().startOf("day")
+      selected: moment().startOf('day')
     };
   }
 
   previous = () => {
     const { month } = this.state;
     this.setState({
-      month: month.subtract(1, "month")
+      month: month.subtract(1, 'month')
     });
   };
 
   next = () => {
     const { month } = this.state;
     this.setState({
-      month: month.add(1, "month")
+      month: month.add(1, 'month')
     });
   };
 
   select = (day: any) => {
-    console.log("day", day);
+    console.log('day', day);
     this.setState({
       selected: day.date,
       month: day.date.clone()
@@ -46,9 +46,9 @@ class Calendar extends Component<CalendarProps, CalendarState> {
     let done = false;
     const date = this.state.month
       .clone()
-      .startOf("month")
+      .startOf('month')
       // .add("w", 1)
-      .day("Sunday");
+      .day('Sunday');
     let count = 0;
     let monthIndex = date.month();
 
@@ -64,7 +64,7 @@ class Calendar extends Component<CalendarProps, CalendarState> {
           selected={selected}
         />
       );
-      date.add(1, "w");
+      date.add(1, 'w');
       done = count++ > 2 && monthIndex !== date.month();
       monthIndex = date.month();
     }
@@ -75,7 +75,7 @@ class Calendar extends Component<CalendarProps, CalendarState> {
   renderMonthLabel() {
     const { month } = this.state;
 
-    return <span className="month-label">{month.format("MMMM YYYY")}</span>;
+    return <span className="month-label">{month.format('MMMM YYYY')}</span>;
   }
 
   render() {
@@ -125,15 +125,15 @@ class Week extends React.Component<WeekProps> {
 
     for (let i = 0; i < 7; i++) {
       const day = {
-        name: date.format("dd").substring(0, 1),
+        name: date.format('dd').substring(0, 1),
         number: date.date(),
         isCurrentMonth: date.month() === month.month(),
-        isToday: date.isSame(new Date(), "day"),
+        isToday: date.isSame(new Date(), 'day'),
         date: date
       };
       days.push(<Day day={day} selected={selected} select={select} />);
       date = date.clone();
-      date.add(1, "day");
+      date.add(1, 'day');
     }
 
     return <div className="week">{days}</div>;
@@ -157,13 +157,12 @@ class Day extends React.Component<DayProps> {
       <span
         key={date.toString()}
         className={
-          "day" +
-          (isToday ? " today" : "") +
-          (isCurrentMonth ? "" : " different-month") +
-          (date.isSame(selected) ? " selected" : "")
+          'day' +
+          (isToday ? ' today' : '') +
+          (isCurrentMonth ? '' : ' different-month') +
+          (date.isSame(selected) ? ' selected' : '')
         }
-        onClick={() => select(this.props.day)}
-      >
+        onClick={() => select(this.props.day)}>
         {number}
       </span>
     );

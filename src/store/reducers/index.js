@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
-import login from "./loginReducer";
-import coinsMarkets from "./coinsMarketsReducer";
+import { combineReducers } from 'redux';
+import login from './loginReducer';
+import coinsMarkets from './coinsMarketsReducer';
 
 const rootReducer = combineReducers({
   login,

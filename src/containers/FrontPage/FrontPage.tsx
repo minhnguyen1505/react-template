@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./FrontPage.scss";
+import React, { Component } from 'react';
+import './FrontPage.scss';
 
 export default class FrontPage extends Component {
   render() {

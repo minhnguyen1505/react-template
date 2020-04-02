@@ -1,9 +1,14 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getCoinsMarketsAction } from "../../store/actions/actionCoins";
-import "./CryptocurrencyMainChart.scss";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getCoinsMarketsAction } from '../../store/actions/actionCoins';
+import {
+  formatPrice,
+  formatCurrency,
+  formatPercent
+} from '../../common/helpers';
+import './CryptocurrencyMainChart.scss';
 
-import { Button, Select, Icon } from "antd";
+import { Button, Select, Icon } from 'antd';
 const { Option } = Select;
 
 interface CryptocurrencyMainChartProps {
@@ -21,28 +26,33 @@ class CryptocurrencyMainChart extends Component<CryptocurrencyMainChartProps> {
 
   handleClick = async () => {
     const { getCoinsMarketsAction } = this.props;
-    console.log("run???");
+    console.log('run???');
     const params = {
-      vs_currency: "usd",
+      /* eslint-disable @typescript-eslint/camelcase */
+      vs_currency: 'usd',
       sparkline: true
     };
     await getCoinsMarketsAction(params);
   };
 
+  componentWillMount() {
+    this.handleClick();
+  }
+
   createTbody = () => {
     const { coinsMarketsStore } = this.props;
-    let tbody = [];
-    if (coinsMarketsStore.hasOwnProperty("success")) {
-      let coinsMarketsData = coinsMarketsStore.success.data;
+    const tbody = [];
+    if (coinsMarketsStore.hasOwnProperty('success')) {
+      const coinsMarketsData = coinsMarketsStore.success.data;
       for (let i = 0; i < Object.keys(coinsMarketsData).length; i++) {
-        let data: any = coinsMarketsData[i];
-        let children = (
+        const data: any = coinsMarketsData[i];
+        const children = (
           <tr>
-            <td className="sticky sortable left">
+            <td className="sticky sortable center">
               <div>{i + 1}</div>
             </td>
             <td className="sticky sortable left">
-              <div>
+              <div className="flex">
                 <img
                   src={data.image}
                   alt={data.name}
@@ -53,33 +63,36 @@ class CryptocurrencyMainChart extends Component<CryptocurrencyMainChartProps> {
                 <a
                   href="/currencies/bitcoin/"
                   title={data.name}
-                  className="crypto-link"
-                >
+                  className="crypto-link">
                   {data.name}
                 </a>
               </div>
             </td>
             <td className="right">
-              <div>${data.market_cap}</div>
+              <div>${formatCurrency.format(data.market_cap)}</div>
             </td>
             <td className="right">
               <a href="/currencies/bitcoin/markets/" className="cmc-link">
-                ${data.current_price}
+                ${formatPrice.format(data.current_price)}
               </a>
             </td>
             <td className="right">
               <a href="/currencies/bitcoin/markets/" className="cmc-link">
-                ${data.total_volume}
+                ${formatCurrency.format(data.total_volume)}
               </a>
             </td>
             <td className="right">
               <div>
-                {data.circulating_supply} {data.symbol.toUpperCase()}
+                {formatCurrency.format(data.circulating_supply)}{' '}
+                {data.symbol.toUpperCase()}
               </div>
             </td>
             <td className="right">
-              <div className="cmc--change-positive">
-                {data.price_change_percentage_24h}%
+              <div
+                className={
+                  data.price_change_percentage_24h > 0 ? 'positive' : 'negative'
+                }>
+                {formatPercent.format(data.price_change_percentage_24h)}%
               </div>
             </td>
             <td className="right">
@@ -108,8 +121,7 @@ class CryptocurrencyMainChart extends Component<CryptocurrencyMainChartProps> {
                         className="svg-inline--fa fa-ellipsis-h fa-w-16 cmc-icon"
                         role="img"
                         xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                      >
+                        viewBox="0 0 512 512">
                         <path
                           fill="currentColor"
                           d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
@@ -143,8 +155,7 @@ class CryptocurrencyMainChart extends Component<CryptocurrencyMainChartProps> {
             <Select
               defaultValue="usd"
               style={{ width: 70, marginRight: 5 }}
-              onChange={(value: string) => this.handleChange(value)}
-            >
+              onChange={(value: string) => this.handleChange(value)}>
               <Option value="usd">USD</Option>
               <Option value="btc">BTC</Option>
               <Option value="eth">ETH</Option>
@@ -155,20 +166,18 @@ class CryptocurrencyMainChart extends Component<CryptocurrencyMainChartProps> {
             <Button
               type="primary"
               style={{
-                backgroundColor: "white",
-                color: "#1890ff",
+                backgroundColor: 'white',
+                color: '#1890ff',
                 marginRight: 5
-              }}
-            >
+              }}>
               <div className="crypto-tabs__button">
                 <span>Next 100 →</span>
               </div>
             </Button>
             <Button
               type="primary"
-              style={{ backgroundColor: "white", color: "#1890ff" }}
-              onClick={() => this.handleClick()}
-            >
+              style={{ backgroundColor: 'white', color: '#1890ff' }}
+              onClick={() => this.handleClick()}>
               <div className="crypto-tabs__button">
                 <span>View All</span>
               </div>
@@ -195,10 +204,10 @@ class CryptocurrencyMainChart extends Component<CryptocurrencyMainChartProps> {
           </div>
         </div>
         <div className="crypto-table">
-          <table style={{ width: "100%" }}>
+          <table style={{ width: '100%' }}>
             <thead>
               <tr>
-                <th className="sticky width-40 sortable left">#</th>
+                <th className="sticky width-40 sortable center">#</th>
                 <th className="sticky sortable left">Name</th>
                 <th className="sortable right">Market Cap</th>
                 <th className="sortable right">Price</th>

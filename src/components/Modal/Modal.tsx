@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import "./Modal.scss";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './Modal.scss';
 
 let mousePosition: { x: number; y: number } | null;
 const getClickPosition = (e: MouseEvent) => {
@@ -12,11 +12,11 @@ const getClickPosition = (e: MouseEvent) => {
 };
 
 if (
-  typeof window !== "undefined" &&
+  typeof window !== 'undefined' &&
   window.document &&
   window.document.documentElement
 ) {
-  document.documentElement.addEventListener("click", getClickPosition);
+  document.documentElement.addEventListener('click', getClickPosition);
 }
 
 interface ModalProps {
@@ -44,8 +44,8 @@ export default class Modal extends Component<ModalProps> {
   };
   static defaultProps = {
     width: 520,
-    transitionName: "zoom",
-    maskTransitionName: "fade",
+    transitionName: 'zoom',
+    maskTransitionName: 'fade',
     confirmLoading: false,
     visible: false
   };
@@ -74,8 +74,7 @@ export default class Modal extends Component<ModalProps> {
         <button
           type="button"
           className="ant-btn ant-btn-primary"
-          onClick={this.handleOk}
-        >
+          onClick={this.handleOk}>
           <span>okText</span>
         </button>
       </React.Fragment>
@@ -116,8 +115,7 @@ export default class Modal extends Component<ModalProps> {
                 <button
                   type="button"
                   className="modal-close"
-                  onClick={this.handleCancel}
-                >
+                  onClick={this.handleCancel}>
                   <span className="modal-close-x">
                     <i className="icon dripicons-cross"></i>
                   </span>

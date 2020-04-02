@@ -1,3 +1,3 @@
-export const tokenDTO = authData => ({
+export const tokenDTO = (authData) => ({
   accessToken: authData.key
 });

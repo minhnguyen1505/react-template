@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./FormInput.scss";
+import React, { Component } from 'react';
+import './FormInput.scss';
 
 interface FieldProps {
   type: string;
