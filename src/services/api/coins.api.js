@@ -1,7 +1,7 @@
 import api from '../../common/helpers/api';
 import { API_URL } from '../../common/config';
 
-export const coinsMarkets = (params) => {
+export const getCoinsMarkets = (params) => {
   return new Promise(async (resolve, reject) => {
     console.log('run api');
     try {
@@ -13,8 +13,10 @@ export const coinsMarkets = (params) => {
         typeAPI: 'coin'
       });
       if (resp) {
-        console.log('run here', resp);
-        resolve(resp);
+        resolve({
+          code: 200,
+          data: resp
+        });
       }
     } catch (err) {
       reject(err);

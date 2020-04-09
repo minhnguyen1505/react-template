@@ -8,5 +8,8 @@ import types from './types';
 // };
 
 export const loginUserAction = (data) => {
-  return { type: types.LOGIN_REQUEST, data };
+  return {
+    type: types.LOGIN_REQUEST,
+    data
+  };
 };

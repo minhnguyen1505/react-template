@@ -12,11 +12,16 @@ export const login = (authInfo) => {
         password
       });
       if (resp) {
-        console.log('run here', resp);
-        resolve(resp);
+        resolve({
+          code: 200,
+          data: resp
+        });
       }
     } catch (err) {
-      reject(err);
+      reject({
+        code: err.code,
+        err: err
+      });
     }
   });
 };
